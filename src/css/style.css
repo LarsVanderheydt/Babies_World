@@ -18,3 +18,48 @@ header {
 h1 {
   font-size: 3rem;
 }
+
+.main_div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+}
+
+.color_div {
+  margin: 3rem 0;
+  height: 3rem;
+}
+
+.color_div div {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+}
+
+.previews {
+  margin-top: 3rem;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icons_div {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+.bal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-right: -10px;
+  border-radius: 50%;
+  transition: top .1s, left .1s;
+}

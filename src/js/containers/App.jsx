@@ -1,41 +1,71 @@
-import React from 'react';
-import {string} from 'prop-types';
-
-import {inject, observer} from 'mobx-react';
+import React, {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
 
-import {Route} from 'react-router-dom';
-import Home from './Home';
+import {Route, Switch, BrowserRouter as Router, Redirect} from 'react-router-dom';
+import Character from './Character';
+import World from './World';
+import Mars from './Mars';
+import Controller from './Controller';
 
-const App = ({name}) => (
+class App extends Component {
+  renderCharacter({match}) {
+    const {place} = match.params;
 
-  <section>
+    if (!place) return <Redirect to='/' />;
 
-    {process.env.NODE_ENV !== `production` ? <DevTools/> : null}
+    return <Character place={place} />;
+  }
 
-    <header>
-      <h1>Hello, {name}</h1>
-    </header>
+  renderController({match}) {
+    const {id} = match.params;
 
-    <section>
-      <Route
-        exact path='/'
-        component={Home}
-      />
-    </section>
+    if (!id) return <Redirect to='/' />;
 
-  </section>
+    return <Controller targetId={id} />;
+  }
 
-);
+  render() {
+    return (
+      <section>
 
-App.propTypes = {
-  name: string.isRequired
-};
+        {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
 
-export default inject(
-  ({store}) => ({
-    name: store.name
-  })
-)(
-  observer(App)
-);
+        <section className='character'>
+          <Router>
+            <Switch>
+              <Route
+                exact path='/:place'
+                render={this.renderCharacter}
+              />
+
+              <Route
+                exact path='/place/earth'
+                component={World}
+              />
+
+              <Route
+                exact path='/place/mars'
+                component={Mars}
+              />
+
+              <Route
+                exact path='/controller/:id'
+                render={this.renderController}
+              />
+
+              <Route
+                render={() => <Redirect to='/' />}
+              />
+
+
+            </Switch>
+          </Router>
+
+        </section>
+
+      </section>
+    );
+  }
+}
+
+export default App;

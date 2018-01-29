@@ -1,0 +1,47 @@
+/* eslint-disable react/jsx-filename-extension */
+
+import React from 'react';
+import {string, object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
+
+import Superman from './Superman';
+import Evil from './Evil';
+import Unicorn from './Unicorn';
+
+const Hair = ({type, character}) => {
+
+  return (
+    <g>
+      {(() => {
+        switch (type) {
+        case `Superman`:
+          return <Superman color={character.hairColor.Superman} />;
+
+        case `Evil`:
+          return <Evil color={character.hairColor.Evil} />;
+
+        case `Unicorn`:
+          return <Unicorn primary={character.hairColor.Unicorn.primary} secondary={character.hairColor.Unicorn.secondary} tertiary={character.hairColor.Unicorn.tertiary} />;
+
+        default:
+
+        }
+      })()}
+    </g>
+  );
+};
+
+Hair.propTypes = {
+  type: string.isRequired,
+  character: object.isRequired
+};
+
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Hair)
+ );

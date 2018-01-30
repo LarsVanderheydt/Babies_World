@@ -6,6 +6,7 @@
     "server": "nodemon app.js",
     "start": "forever .",
     "clean": "rimraf ./dist",
+    "serve": "ws -d ./dist -c -p 3000 ",
     "production": "npm run clean && NODE_ENV=production webpack -p"
   },
   "devDependencies": {

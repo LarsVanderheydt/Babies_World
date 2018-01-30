@@ -7,6 +7,7 @@ import {inject, observer} from 'mobx-react';
 import Superman from './Superman';
 import Evil from './Evil';
 import Unicorn from './Unicorn';
+import Suit from './Suit';
 
 const Legs = ({character}) => {
 
@@ -24,8 +25,9 @@ const Legs = ({character}) => {
           case `Unicorn`:
             return <Unicorn color={character.bodyTypeColor.color} />;
 
-          default:
-            return <Evil />;
+          case `Suit`:
+            return <Suit />;
+
           }
         })()
       }

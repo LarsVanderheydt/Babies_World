@@ -14,6 +14,9 @@
     "Trump": {
       "primary": ["#a0fb89", "#f7f771", "#ed5b5b", "#bbbbbb"],
       "secondary": ["#a0fb89", "#f7f771", "#ed5b5b", "#bbbbbb"]
+    },
+    "Bride": {
+      "primary": ["#E39AE5", "#46a62e", "#1f8990", "#771a9d"]
     }
   },
 
@@ -71,6 +74,9 @@
       "primary": ["#E39AE5", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Unicorn": {
+      "primary": ["#E39AE5", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Suit": {
       "primary": ["#E39AE5", "#46a62e", "#1f8990", "#771a9d"]
     }
   },

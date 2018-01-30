@@ -23,8 +23,6 @@ const Facial = ({type, character}) => {
         case `Cigar`:
           return <Cigar color={character.facialHairColor.Cigar} />;
 
-        default:
-
         }
       })()}
     </g>

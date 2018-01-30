@@ -32,8 +32,6 @@ const Body = ({character}) => {
           case `Bride`:
             return <Bride color={character.bodyTypeColor.color} />;
 
-          default:
-
           }
         })()
       }

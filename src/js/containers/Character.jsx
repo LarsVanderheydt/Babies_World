@@ -1,8 +1,7 @@
 import React from 'react';
 import {observer, inject} from 'mobx-react';
 import {string, func, object} from 'prop-types';
-// import {Link} from 'react-router-dom';
-import io from 'socket.io-client';
+
 import Head from '../components/Head';
 import Body from '../components/Body';
 import Legs from '../components/Legs';
@@ -20,30 +19,8 @@ const Character = ({selectType, setType, previewTypes, character, place}) => {
     setType(selectType);
   };
 
-  const socket = io.connect(`http://localhost:8000`);
-
-  // let connectionUrlEl;
-
-  const init = () => {
-    connect();
-  };
-
-  const connect = () => {
-    socket.on(`sid`, sid => {
-      // connectionUrlEl.textContent = `controller/${sid}`;
-      console.log(sid);
-    });
-  };
-
-  init();
-
   return (
     <div className='main_div'>
-      {/* <p ref={$el => connectionUrlEl = $el}></p>
-      <div className='next'>
-        <Link to={`/controller/${place}`} >Ga verder</Link>
-
-      </div> */}
       <svg width='330px' height='330px' viewBox='0 0 200 330' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character'>
         <defs>
             <polygon id='legs-evil-1' points='0.202469892 0.0946553588 31.880986 0.0946553588 31.880986 23.6522455 0.202469892 23.6522455'></polygon>
@@ -83,10 +60,10 @@ const Character = ({selectType, setType, previewTypes, character, place}) => {
       </svg>
 
       <div className='color_div'>
-        {selectType === `SkinTone` || selectType === `Body` || selectType === `Accessoires` ? `` : <Colors />}
+        {selectType === `SkinTone` || selectType === `Body` || selectType === `Accessoire` ? `` : <Colors />}
       </div>
 
-      <div className='icons_div' >
+      <div className='icons_div'>
         {
           previewTypes.map(icon => {
             return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} />;

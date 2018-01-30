@@ -8,6 +8,7 @@ import Superman from './Superman';
 import Evil from './Evil';
 import Unicorn from './Unicorn';
 import Trump from './Trump';
+import Bride from './Bride';
 
 const Hair = ({type, character}) => {
 
@@ -27,7 +28,8 @@ const Hair = ({type, character}) => {
         case `Trump`:
           return <Trump primary={character.hairColor.Trump.primary} secondary={character.hairColor.Trump.secondary} />;
 
-        default:
+        case `Bride`:
+          return <Bride />;
 
         }
       })()}

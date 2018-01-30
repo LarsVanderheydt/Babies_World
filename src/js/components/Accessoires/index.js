@@ -20,8 +20,6 @@ const Accessoires = ({character}) => {
           case `Nutella`:
             return <Nutella />;
 
-          default:
-
           }
         })()
       }

@@ -25,16 +25,16 @@ class Store {
     types: [`Superman`, `Evil`, `Cigar`]
   }, {
     type: `Hair`,
-    types: [`Superman`, `Evil`, `Unicorn`, `Trump`]
+    types: [`Superman`, `Evil`, `Unicorn`, `Trump`, `Bride`]
   }, {
     type: `Body`,
     types: [`Superman`, `Evil`, `Unicorn`, `Suit`, `Bride`]
   }, {
     type: `Legs`,
-    types: [`Superman`, `Evil`, `Unicorn`]
+    types: [`Superman`, `Evil`, `Unicorn`, `Suit`]
   }, {
     type: `Accessoire`,
-    types: [`Balloon`, `Nutella`]
+    types: [`None`, `Balloon`, `Nutella`]
   },
   ]
 
@@ -44,6 +44,7 @@ class Store {
     hairColor: {
       Superman: `#C1272D`,
       Evil: `#DB917D`,
+      Bride: `#DB917D`,
       Unicorn: {
         primary: `#93278F`,
         secondary: `#842484`,
@@ -69,7 +70,8 @@ class Store {
 
     legsColor: {
       Superman: `#C1272D`,
-      Evil: `#7F47DD`
+      Evil: `#7F47DD`,
+      Suit: `#7F47DD`
     },
 
     accessoireColor: {

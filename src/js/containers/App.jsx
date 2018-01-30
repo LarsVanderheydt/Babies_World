@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
-
 import {Route, Switch, BrowserRouter as Router, Redirect} from 'react-router-dom';
+
 import Character from './Character';
-import World from './World';
-import Mars from './Mars';
 import Controller from './Controller';
+import World from './World';
 
 class App extends Component {
+
   renderCharacter({match}) {
     const {place} = match.params;
-
     if (!place) return <Redirect to='/' />;
 
     return <Character place={place} />;
@@ -18,8 +17,7 @@ class App extends Component {
 
   renderController({match}) {
     const {id} = match.params;
-
-    if (!id) return <Redirect to='/' />;
+    if (!id) return <Redirect to='/mars' />;
 
     return <Controller targetId={id} />;
   }
@@ -39,24 +37,18 @@ class App extends Component {
               />
 
               <Route
-                exact path='/place/earth'
-                component={World}
-              />
-
-              <Route
-                exact path='/place/mars'
-                component={Mars}
-              />
-
-              <Route
                 exact path='/controller/:id'
                 render={this.renderController}
               />
 
               <Route
-                render={() => <Redirect to='/' />}
+                exact path='/place/world'
+                render={World}
               />
 
+              <Route
+                render={() => <Redirect to='/mars' />}
+              />
 
             </Switch>
           </Router>

@@ -1,38 +1,55 @@
 import React from 'react';
-import {object} from 'prop-types';
-import {inject, observer} from 'mobx-react';
-import openSocket from 'socket.io-client';
+import io from 'socket.io-client';
+//import {} from 'prop-types'
+//import {inject, observer} from 'mobx-react'
 
-const World = ({character}) => {
-  const socket = openSocket(`http://localhost:8000`);
+const World = () => {
+  const socket = io.connect(`http://localhost:8000`);
 
-  socket.on(`sid`, sid => {
-    const connect = `controller/${sid}`;
-    console.log(character);
-    console.log(connect);
-  });
+  let connectionUrlEl;
+  let bal;
 
-  socket.on(`update`, data => {
-    console.log(data);
-  });
+
+  const init = () => {
+    connect();
+  };
+
+  const connect = () => {
+
+
+    socket.on(`sid`, sid => {
+      connectionUrlEl.textContent = `controller/${sid}`;
+    });
+
+    socket.on(`update`, data => {
+      console.log(data);
+      bal.style.left = `${100 * data.x  }%`;
+      bal.style.top = `${100 * data.y  }%`;
+    });
+  };
+
+  init();
 
   return (
     <div>
-      <h1>Hello earth</h1>
+      <p ref={$el => connectionUrlEl = $el}></p>
+      <div ref={$el => bal = $el} className='bal'>
+
+      </div>
     </div>
   );
 };
 
-World.propTypes = {
-  character: object.isRequired
-};
+//World.propTypes = {
+//  : .isRequired
+//};
 
+export default World;
+
+/*
 export default inject(
-  ({store}) => {
-    return ({
-      character: store.character
-    });
-  }
+
  )(
    observer(World)
  );
+ */

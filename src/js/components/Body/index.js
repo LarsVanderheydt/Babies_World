@@ -7,11 +7,13 @@ import {inject, observer} from 'mobx-react';
 import Superman from './Superman';
 import Evil from './Evil';
 import Unicorn from './Unicorn';
+import Suit from './Suit';
+import Bride from './Bride';
 
 const Body = ({character}) => {
 
   return (
-    <g>
+    <g id='body'>
       {
         (() => {
           switch (character.bodyType) {
@@ -19,10 +21,16 @@ const Body = ({character}) => {
             return <Superman />;
 
           case `Evil`:
-            return <Evil />;
+            return <Evil color={character.bodyTypeColor.color} />;
 
           case `Unicorn`:
-            return <Unicorn />;
+            return <Unicorn color={character.bodyTypeColor.color} />;
+
+          case `Suit`:
+            return <Suit />;
+
+          case `Bride`:
+            return <Bride color={character.bodyTypeColor.color} />;
 
           default:
 

@@ -7,6 +7,7 @@ import {inject, observer} from 'mobx-react';
 import Superman from './Superman';
 import Evil from './Evil';
 import Unicorn from './Unicorn';
+import Trump from './Trump';
 
 const Hair = ({type, character}) => {
 
@@ -22,6 +23,9 @@ const Hair = ({type, character}) => {
 
         case `Unicorn`:
           return <Unicorn primary={character.hairColor.Unicorn.primary} secondary={character.hairColor.Unicorn.secondary} tertiary={character.hairColor.Unicorn.tertiary} />;
+
+        case `Trump`:
+          return <Trump primary={character.hairColor.Trump.primary} secondary={character.hairColor.Trump.secondary} />;
 
         default:
 

@@ -1,44 +1,53 @@
 import React from 'react';
-import {func, object} from 'prop-types';
+import {func, object, string} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
-const Colors = ({setCharacter, character, colors}) => {
+const Colors = ({setCharacter, character, colors, selectType, selectedType}) => {
   let id = 0;
+  const iconNameToCharacterName = selectedType(selectType);
+  const characterColorName = `${iconNameToCharacterName}Color`;
+
   const onColorClick = e => {
     const color = e.currentTarget.id;
 
-    if (character.hair === `Unicorn`) {
-      const index = colors[character.hair].primary.indexOf(color);
-      const secondary = colors[character.hair].secondary[index];
-      const tertiary = colors[character.hair].tertiary[index];
+    if (character.hair === `Unicorn` && selectType === `Hair`) {
+      const index = colors[0].Hair.Unicorn.primary.indexOf(color);
+      const secondary = colors[0].Hair.Unicorn.secondary[index];
+      const tertiary = colors[0].Hair.Unicorn.tertiary[index];
 
-      character.hairColor[character.hair].primary = color;
-      character.hairColor[character.hair].secondary = secondary;
-      character.hairColor[character.hair].tertiary = tertiary;
+      character.hairColor.Unicorn.primary = color;
+      character.hairColor.Unicorn.secondary = secondary;
+      character.hairColor.Unicorn.tertiary = tertiary;
+
+    } else if (character.hair === `Trump` && selectType === `Hair`) {
+
+      const index = colors[0].Hair.Trump.primary.indexOf(color);
+      const secondary = colors[0].Hair.Trump.secondary[index];
+
+      character.hairColor.Trump.primary = color;
+      character.hairColor.Trump.secondary = secondary;
+
     } else {
-      character.hairColor[character.hair] = color;
+      // character.facialHair.Facial
+      character[characterColorName][character[iconNameToCharacterName]] = color;
     }
 
-    console.log(character.hairColor[character.hair]);
     setCharacter(character);
   };
 
   return (
     <div>
       {
-        character.hair ? (
-          colors[character.hair].primary.map(color => {
-            id ++;
-            return (<div key={id} style={{
-              backgroundColor: color,
-              width: `3rem`,
-              height: `3rem`,
-              borderRadius: `5rem`
-            }}
-            onClick={onColorClick} id={color}></div>);
-          })
-        ) : ``
-
+        colors[0][selectType][character[iconNameToCharacterName]].primary.map(color => {
+          id ++;
+          return (<div key={id} style={{
+            backgroundColor: color,
+            width: `3rem`,
+            height: `3rem`,
+            borderRadius: `5rem`
+          }}
+          onClick={onColorClick} id={color}></div>);
+        })
       }
     </div>
   );
@@ -47,7 +56,9 @@ const Colors = ({setCharacter, character, colors}) => {
 Colors.propTypes = {
   setCharacter: func.isRequired,
   character: object.isRequired,
-  colors: object.isRequired
+  colors: object.isRequired,
+  selectType: string.isRequired,
+  selectedType: func.isRequired
 };
 
 export default inject(
@@ -55,7 +66,9 @@ export default inject(
     return ({
       setCharacter: store.setCharacter,
       character: store.character,
-      colors: store.colors
+      colors: store.colors,
+      selectType: store.selectType,
+      selectedType: store.selectedType
     });
   }
  )(

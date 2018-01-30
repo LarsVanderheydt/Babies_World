@@ -11,7 +11,7 @@ import Unicorn from './Unicorn';
 const Legs = ({character}) => {
 
   return (
-    <g>
+    <g id='legs'>
       {
         (() => {
           switch (character.legs) {
@@ -22,7 +22,7 @@ const Legs = ({character}) => {
             return <Evil />;
 
           case `Unicorn`:
-            return <Unicorn />;
+            return <Unicorn color={character.bodyTypeColor.color} />;
 
           default:
             return <Evil />;

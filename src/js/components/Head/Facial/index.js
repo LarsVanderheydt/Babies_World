@@ -1,22 +1,27 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from 'react';
-import {string} from 'prop-types';
+import {string, object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
 
 import Superman from './Superman';
 import Evil from './Evil';
+import Cigar from './Cigar';
 
-const Facial = ({type}) => {
+const Facial = ({type, character}) => {
 
   return (
     <g>
       {(() => {
         switch (type) {
         case `Superman`:
-          return <Superman />;
+          return <Superman  color={character.facialHairColor.Superman} />;
 
         case `Evil`:
-          return <Evil />;
+          return <Evil color={character.facialHairColor.Evil} />;
+
+        case `Cigar`:
+          return <Cigar color={character.facialHairColor.Cigar} />;
 
         default:
 
@@ -27,7 +32,17 @@ const Facial = ({type}) => {
 };
 
 Facial.propTypes = {
-  type: string.isRequired
+  type: string.isRequired,
+  character: object.isRequired
 };
 
-export default Facial;
+
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Facial)
+ );

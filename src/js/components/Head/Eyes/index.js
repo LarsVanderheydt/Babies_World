@@ -1,28 +1,26 @@
 /* eslint-disable react/jsx-filename-extension */
 
 import React from 'react';
-import {string} from 'prop-types';
-//import {inject, observer} from 'mobx-react'
+import {string, object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
 import Superman from './Superman';
 import Evil from './Evil';
-import Unicorn from './Unicorn';
+import Glasses from './Glasses';
 
-const Eyes = ({type}) => {
+const Eyes = ({type, character}) => {
 
   return (
     <g>
       {(() => {
         switch (type) {
         case `Superman`:
-          return <Superman />;
+          return <Superman color={character.eyesColor.Superman} />;
 
         case `Evil`:
-          return <Evil />;
+          return <Evil color={character.eyesColor.Evil} />;
 
-        case `Unicorn`:
-          return <Unicorn />;
-
-        default:
+        case `Glasses`:
+          return <Glasses color={character.eyesColor.Glasses} />;
 
         }
       })()}
@@ -31,7 +29,16 @@ const Eyes = ({type}) => {
 };
 
 Eyes.propTypes = {
-  type: string.isRequired
+  type: string.isRequired,
+  character: object.isRequired
 };
 
-export default Eyes;
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Eyes)
+ );

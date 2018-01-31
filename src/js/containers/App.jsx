@@ -9,7 +9,7 @@ class App extends Component {
 
   renderCharacter({match}) {
     const {place} = match.params;
-    if (!place) return <Redirect to='/' />;
+    if (!place) return <Redirect to='/home' />;
 
     return <Character place={place} />;
   }
@@ -25,7 +25,7 @@ class App extends Component {
           <Router>
             <Switch>
               <Route
-                exact path='/world'
+                exact path='/place/world'
                 render={World}
               />
 

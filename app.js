@@ -18,7 +18,7 @@ const provision = async () => {
 
   server.route({
     method: `GET`,
-    path: `/`,
+    path: `/{param*}`,
     handler: {
       directory: {
         path: `.`,

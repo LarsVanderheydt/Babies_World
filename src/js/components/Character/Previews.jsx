@@ -19,8 +19,8 @@ const HairPreviews = ({setCharacter, selectType, previewTypes, character, select
             imgs.push(
               <div key={color} className={character.bodyTypeColor.color === color ? `skinTone_div current_skintone` : `skinTone_div`}>
                 <div className='skinTone_head' style={{backgroundColor: color}}>
-                  <img  src={`./assets/img/SkinTone/eyes.png`} onClick={handlePreviewClick} id={color} width='30' height='10' />
-                  {/* <img  src={`https://babiesworld.herokuapp.com/assets/img/SkinTone/eyes.png`} onClick={handlePreviewClick} id={color} width='30' height='10' /> */}
+                  {/* <img  src={`./assets/img/SkinTone/eyes.png`} onClick={handlePreviewClick} id={color} width='30' height='10' /> */}
+                  <img  src={`https://babiesworld.herokuapp.com/assets/img/SkinTone/eyes.png`} onClick={handlePreviewClick} id={color} width='30' height='10' />
                 </div>
               </div>
             );
@@ -31,8 +31,8 @@ const HairPreviews = ({setCharacter, selectType, previewTypes, character, select
           preview.types.map(d => {
             imgs.push(
               <div key={d} className={character[iconNameToCharacterName] === d ? `skinTone_div current_skintone` : `skinTone_div`}>
-                <img src={`./assets/img/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' />
-                {/* <img src={`https://babiesworld.herokuapp.com/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' /> */}
+                {/* <img src={`./assets/img/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' /> */}
+                <img src={`https://babiesworld.herokuapp.com/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' />
               </div>
             );
           });

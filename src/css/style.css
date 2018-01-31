@@ -53,8 +53,8 @@ h1 {
 }
 
 ::-webkit-scrollbar {
-  width: 0;  /* remove scrollbar space */
-  background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0;
+  background: transparent;
 }
 
 .preview_imgs {
@@ -124,4 +124,138 @@ h1 {
   margin-right: -10px;
   background: red;
   border-radius: 50%;
+}
+
+.carousel_div_height {
+  height: 65vh;
+}
+
+.carousel_div_vehicle {
+  margin-top: 3rem;
+  animation: vehicleup .4s ease-out;
+}
+
+@keyframes vehicleup {
+
+  from { margin-top: 5rem; }
+
+  to { margin-top: 3rem; }
+}
+
+@keyframes vehicledown {
+
+  from { margin-top: 3rem; }
+
+  to { margin-top: 1rem; }
+}
+
+.carousel_div_name {
+  margin-top: 1rem;
+  animation: vehicledown .4s ease-out;
+
+}
+
+.carousel_item {
+  width: 25rem;
+  height: 25rem;
+  background-color: rgb(189, 189, 189);
+  border-radius: 50rem;
+}
+
+.vehicle_page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.vehicle_name {
+  margin-top: -16rem;
+  margin-bottom: 9rem;
+}
+
+.carousel_item_win_lose {
+  width: 15rem;
+  height: 15rem;
+  background-color: rgb(189, 189, 189);
+  border-radius: 50rem;
+}
+
+.vehicle_back {
+  align-self: flex-start;
+  margin-left: 3rem;
+  top: 4%;
+  position: absolute;
+}
+
+.vehicle_next {
+  padding: 1rem 3rem;
+  text-decoration: none;
+  background-color: lightgray;
+  border-radius: 3rem;
+  position: absolute;
+  bottom: 5%;
+}
+
+.win_lose_screen {
+  line-height: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: space-around;
+}
+
+.win_lose_text_div {
+  width: 80vw;
+}
+
+.win_lose_greeting {
+  margin: 2.5rem 0;
+}
+
+.win_lose_button {
+  margin-top: 6vh;
+  margin-bottom: 4vh;
+}
+
+.win_lose_second_par {
+  margin-top: 4vh;
+}
+
+.vehicle_name_form {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  align-items: center;
+}
+
+.vehicle_name_input {
+  margin-top: -10rem;
+  margin-bottom: 10rem;
+}
+
+.vehicle_text {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.4rem;
+  width: 100vw;
+  align-items: center;
+}
+
+.controller_div {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-top: 5vh;
+}
+
+.controller_top_buttons {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
 }

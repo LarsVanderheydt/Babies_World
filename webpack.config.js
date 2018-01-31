@@ -14,7 +14,8 @@ const {ifProduction, ifDevelopment} = getIfUtils(process.env.NODE_ENV);
 const extractCSS = new ExtractTextWebpackPlugin(`css/style.css`);
 
 // change for production build on different server path
-const publicPath = `https://babiesworld.herokuapp.com/`;
+const publicPath = `/`;
+// const publicPath = `https://babiesworld.herokuapp.com/`;
 
 const port = 3000;
 

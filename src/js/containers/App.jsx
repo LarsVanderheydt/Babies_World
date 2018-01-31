@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import DevTools from 'mobx-react-devtools';
 import {Route, Switch, BrowserRouter as Router, Redirect} from 'react-router-dom';
 
-import Character from './Character';
-import Controller from './Controller';
+import Character from '../components/Character';
 import World from './World';
 
 class App extends Component {
@@ -15,12 +14,6 @@ class App extends Component {
     return <Character place={place} />;
   }
 
-  renderController({match}) {
-    const {id} = match.params;
-    if (!id) return <Redirect to='/mars' />;
-
-    return <Controller targetId={id} />;
-  }
 
   render() {
     return (
@@ -32,18 +25,13 @@ class App extends Component {
           <Router>
             <Switch>
               <Route
+                exact path='/world'
+                render={World}
+              />
+
+              <Route
                 exact path='/:place'
                 render={this.renderCharacter}
-              />
-
-              <Route
-                exact path='/controller/:id'
-                render={this.renderController}
-              />
-
-              <Route
-                exact path='/place/world'
-                render={World}
               />
 
               <Route

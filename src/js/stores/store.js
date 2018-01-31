@@ -8,6 +8,44 @@ class Store {
   }
 
   @observable
+  // choosingVehicle = false;
+  choosingVehicle = true;
+
+  @observable
+  // chooseCharacter = false;
+  chooseCharacter = true;
+
+  @observable
+  play = false;
+
+  @action
+  setPlay = bool => this.play = bool;
+
+  @observable
+  winner = 0;
+
+  @observable
+  time = 0;
+
+  @observable
+  stopTimer = false;
+
+  @observable
+  name = ``
+
+  @action
+  timerAction = bool => this.stopTimer = bool;
+
+  @action
+  setTime = time => this.time = time;
+
+  @action
+  setWinner = win => this.winner = win;
+
+  @action
+  setName = name => this.name = name;
+
+  @observable
   selectType = `SkinTone`;
 
   @observable
@@ -107,6 +145,13 @@ class Store {
   setType = type => this.selectType = type;
 
   @action
+  setVehicle = page => this.choosingVehicle = page;
+
+  @action
+  setCharacterView = bool => this.chooseCharacter = bool;
+
+
+  @action
   setCharacter = (selectType, type) => {
     switch (selectType) {
     case `Hair`: this.character.hair = type;
@@ -124,7 +169,6 @@ class Store {
 
     case `SkinTone`: this.character.bodyTypeColor.color = type;
       break;
-
     }
   }
 

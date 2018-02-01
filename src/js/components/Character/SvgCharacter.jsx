@@ -6,7 +6,6 @@ import Head from './Head';
 import Body from './Body';
 import Legs from './Legs';
 import Accessoires from './Accessoires';
-import SupermanCape from './SupermanCape';
 
 const SvgCharacter = ({character}) => {
 
@@ -27,25 +26,32 @@ const SvgCharacter = ({character}) => {
       <ellipse className='Pink-oval' cx='100' cy='320' rx='87.5' ry='10' fill='#9B1B51'></ellipse>
       <circle id='Pink-oval' cx='100' cy='142.5' r='105.5' fill='#9B1B51'></circle>
 
-      {character.bodyType === `Superman` ? <SupermanCape /> : ``}
+      {/* {character.bodyType === `Superman` ? <SupermanCape /> : ``} */}
+
+      {character.accessoire === `Cape` ? <Accessoires /> : ``}
 
       {
-        character.bodyType === `Unicorn` || character.bodyType === `Bride` ? (
+        character.bodyType === `KaaDrie` || character.bodyType === `Bride` ? (
           <g>
             <Legs />
             <Body />
-            <Head />
-            <Accessoires />
           </g>
         ) : (
           <g>
             <Body />
             <Legs />
-            <Head />
-            <Accessoires />
           </g>
         )
       }
+
+      <Head />
+
+      {
+        character.accessoire === `Default` ||
+        character.accessoire === `Cape`
+        ? `` : <Accessoires />
+      }
+
     </svg>
   );
 };
@@ -53,8 +59,6 @@ const SvgCharacter = ({character}) => {
 SvgCharacter.propTypes = {
   character: object.isRequired
 };
-
-// export default SvgCharacter;
 
 export default inject(
   ({store}) => {

@@ -4,8 +4,8 @@ import React from 'react';
 import {string, object} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
-import Superman from './Superman';
-import Evil from './Evil';
+import Mohawk from './Mohawk';
+import Default from './Default';
 import Unicorn from './Unicorn';
 import Trump from './Trump';
 import Bride from './Bride';
@@ -16,11 +16,11 @@ const Hair = ({type, character}) => {
     <g>
       {(() => {
         switch (type) {
-        case `Superman`:
-          return <Superman color={character.hairColor.Superman} />;
+        case `Default`:
+          return <Default color={character.hairColor.Default} />;
 
-        case `Evil`:
-          return <Evil color={character.hairColor.Evil} />;
+        case `Mohawk`:
+          return <Mohawk color={character.hairColor.Mohawk} />;
 
         case `Unicorn`:
           return <Unicorn primary={character.hairColor.Unicorn.primary} secondary={character.hairColor.Unicorn.secondary} tertiary={character.hairColor.Unicorn.tertiary} />;
@@ -29,7 +29,7 @@ const Hair = ({type, character}) => {
           return <Trump primary={character.hairColor.Trump.primary} secondary={character.hairColor.Trump.secondary} />;
 
         case `Bride`:
-          return <Bride />;
+          return <Bride color={character.hairColor.Bride} />;
 
         }
       })()}

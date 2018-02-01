@@ -2,10 +2,10 @@ import React from 'react';
 import {func} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
-const BackButtonController = ({setVehiclePage}) => {
+const BackButtonController = ({setPartnerPage}) => {
 
   const handleBackClick = () => {
-    setVehiclePage(true);
+    setPartnerPage(true);
   };
 
   return (
@@ -16,13 +16,13 @@ const BackButtonController = ({setVehiclePage}) => {
 };
 
 BackButtonController.propTypes = {
-  setVehiclePage: func.isRequired
+  setPartnerPage: func.isRequired
 };
 
 export default inject(
   ({store}) => {
     return ({
-      setVehiclePage: store.setVehiclePage
+      setPartnerPage: store.setPartnerPage
     });
   }
  )(

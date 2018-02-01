@@ -3,15 +3,15 @@ import {string, bool, func} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import SvgCharacter from './Character/SvgCharacter';
 
-import Vehicles from './Vehicles';
+import Partners from './Partners';
 
-const Win = ({name, play, setPlay, backToInfo, setVehiclePage, win}) => {
+const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win}) => {
   console.log(play);
 
   const handlePlay = () => {
     setPlay(true);
     backToInfo(false);
-    setVehiclePage(true);
+    setPartnerPage(true);
   };
 
   return (
@@ -59,7 +59,7 @@ const Win = ({name, play, setPlay, backToInfo, setVehiclePage, win}) => {
 
       </div>
 
-    ) : <Vehicles />
+    ) : <Partners />
 
   );
 };
@@ -69,7 +69,7 @@ Win.propTypes = {
   play: bool.isRequired,
   setPlay: func.isRequired,
   backToInfo: func.isRequired,
-  setVehiclePage: func.isRequired,
+  setPartnerPage: func.isRequired,
   win: bool.isRequired
 };
 
@@ -82,7 +82,7 @@ export default inject(
       play: store.play,
       setPlay: store.setPlay,
       backToInfo: store.backToInfo,
-      setVehiclePage: store.setVehiclePage
+      setPartnerPage: store.setPartnerPage
     });
   }
  )(

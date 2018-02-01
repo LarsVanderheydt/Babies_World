@@ -33,7 +33,12 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
           <SvgCharacter />
 
           <div className='color_div'>
-            {selectType === `SkinTone` || selectType === `Body` || selectType === `Accessoire` ? `` : <Colors />}
+            {
+              selectType === `SkinTone` ||
+              selectType === `Body` ? `` : (
+                <Colors />
+              )
+            }
           </div>
 
           <div className='icons_div'>
@@ -67,7 +72,8 @@ export default inject(
       setType: store.setType,
       previewTypes: store.previewTypes,
       chooseCharacter: store.chooseCharacter,
-      setCharacterView: store.setCharacterView
+      setCharacterView: store.setCharacterView,
+      character: store.character
     });
   }
  )(

@@ -131,6 +131,11 @@ h1 {
   height: 65vh;
 }
 
+.partners_div {
+  margin-top: 10rem;
+  margin-left: -3rem;
+}
+
 .carousel_div_vehicle {
   margin-top: 1rem;
   animation: vehicleup .4s ease-out;
@@ -153,7 +158,6 @@ h1 {
 .carousel_div_name {
   margin-top: 1rem;
   animation: vehicledown .4s ease-out;
-
 }
 
 .carousel_item {
@@ -173,7 +177,7 @@ h1 {
 }
 
 .vehicle_name {
-  margin-top: -16rem;
+  margin-top: -10rem;
   margin-bottom: 9rem;
 }
 

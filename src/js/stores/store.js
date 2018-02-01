@@ -8,7 +8,69 @@ class Store {
   }
 
   @observable
-  choosingVehicle = true;
+  character = {
+    eyesColor: {
+      Default: `#C1272D`,
+      Angry: `#560909`,
+      Sunglasses: `#FFFF00`,
+      Blush: ``,
+      Chinese: ``,
+      Glasses: ``
+    },
+
+    facialHairColor: {
+      Cigar: `#FFFF00`,
+      Pacifier: `#7F47DD`,
+      Moustache: ``,
+      Goatie: `#C1272D`
+    },
+
+    hairColor: {
+      Default: `#DB917D`,
+      Bride: `#42210B`,
+      Curly: ``,
+      Mohawk: `#C1272D`,
+      Trump: {
+        primary: `#FFD63F`,
+        secondary: `#E8BF3D`
+      },
+      Unicorn: {
+        primary: `#93278F`,
+        secondary: `#842484`,
+        tertiary: `#E39AE5`
+      }
+    },
+
+    legsColor: {
+      Default: ``,
+      Superman: `#C1272D`,
+      Classy: `#7F47DD`,
+      DaiperBoots: ``,
+      Daiper: ``,
+      Mermaid: ``
+    },
+
+    accessoireColor: {
+      Balloon: `#C60505`,
+      Nutella: `#42210B`,
+      Cape: `#C1272D`,
+      Wings: ``
+    },
+
+    bodyTypeColor: {
+      color: `#FBEFEF`
+    },
+
+    hair: `Default`,
+    eyes: `Default`,
+    facialHair: `Default`,
+    bodyType: `Default`,
+    legs: `Default`,
+    accessoire: `Default`
+  }
+
+  @observable
+  choosingPartner = true;
 
   @observable
   chooseName = true;
@@ -64,77 +126,24 @@ class Store {
     types: [`#FBEFEF`, `#F4C0B3`, `#EFA389`, `#A67C52`, `#8C6239`, `#4D3319`, `#DA3E47`, `#E8852D`, `#E9C858`, `#7ED321`, `#2685AB`, `#7BB4CB`]
   }, {
     type: `Eyes`,
-    types: [`Superman`, `Evil`, `Glasses`]
+    types: [`Default`, `Angry`, `Blush`, `Chinese`, `Sunglasses`, `Glasses`]
   }, {
     type: `Facial`,
-    types: [`Superman`, `Evil`, `Cigar`]
+    types: [`Default`, `Cigar`, `Goatie`, `Moustache`, `Pacifier`]
   }, {
     type: `Hair`,
-    types: [`Superman`, `Evil`, `Unicorn`, `Trump`, `Bride`]
+    types: [`Default`, `Bride`, `Curly`, `Mohawk`, `Trump`, `Unicorn`]
   }, {
     type: `Body`,
-    types: [`Superman`, `Evil`, `Unicorn`, `Suit`, `Bride`]
+    types: [`Default`, `Bride`, `KaaDrie`, `Suit`, `Superman`, `Tats`]
   }, {
     type: `Legs`,
-    types: [`Superman`, `Evil`, `Unicorn`, `Suit`]
+    types: [`Default`, `Classy`, `DaiperBoots`, `Daiper`, `Mermaid`, `Superman`]
   }, {
     type: `Accessoire`,
-    types: [`None`, `Balloon`, `Nutella`]
+    types: [`Default`, `Balloon`, `Nutella`, `Cape`, `Wings`]
   },
   ]
-
-
-  @observable
-  character = {
-    hairColor: {
-      Superman: `#C1272D`,
-      Evil: `#DB917D`,
-      Bride: `#DB917D`,
-      Unicorn: {
-        primary: `#93278F`,
-        secondary: `#842484`,
-        tertiary: `#E39AE5`
-      },
-      Trump: {
-        primary: `#FFD63F`,
-        secondary: `#E8BF3D`
-      }
-    },
-
-    eyesColor: {
-      Superman: `#C1272D`,
-      Evil: `#560909`,
-      Glasses: `#FFFF00`
-    },
-
-    facialHairColor: {
-      Superman: `#C1272D`,
-      Evil: `#7F47DD`,
-      Cigar: `#FFFF00`
-    },
-
-    legsColor: {
-      Superman: `#C1272D`,
-      Evil: `#7F47DD`,
-      Suit: `#7F47DD`
-    },
-
-    accessoireColor: {
-      Balloon: `#7F47DD`,
-      Nutella: `#7F47DD`
-    },
-
-    bodyTypeColor: {
-      color: `#FBEFEF`
-    },
-
-    hair: `Trump`,
-    eyes: `Glasses`,
-    facialHair: `Cigar`,
-    bodyType: `Bride`,
-    legs: `Superman`,
-    accessoire: `Nutella`
-  }
 
   @observable
   colors = []
@@ -152,7 +161,7 @@ class Store {
   setType = type => this.selectType = type;
 
   @action
-  setVehiclePage = page => this.choosingVehicle = page;
+  setPartnerPage = page => this.choosingPartner = page;
 
   @action
   setCharacterView = bool => this.chooseCharacter = bool;

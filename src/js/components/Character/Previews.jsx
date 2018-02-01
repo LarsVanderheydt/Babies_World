@@ -31,8 +31,8 @@ const HairPreviews = ({setCharacter, selectType, previewTypes, character, select
           preview.types.map(d => {
             imgs.push(
               <div key={d} className={character[iconNameToCharacterName] === d ? `skinTone_div current_skintone` : `skinTone_div`}>
-                {/* <img src={`./assets/img/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' /> */}
-                <img src={`https://babiesworld.herokuapp.com/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' />
+                {/* <img src={`./assets/img/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='90' height='80' /> */}
+                <img src={`https://babiesworld.herokuapp.com/assets/img/${preview.type}/${d}.png`} onClick={handlePreviewClick} id={d} width='100' height='50' />
               </div>
             );
           });

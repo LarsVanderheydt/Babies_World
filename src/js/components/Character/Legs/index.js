@@ -5,9 +5,10 @@ import {object} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import Superman from './Superman';
-import Evil from './Evil';
-import Unicorn from './Unicorn';
-import Suit from './Suit';
+import Default from './Default';
+import DaiperBoots from './DaiperBoots';
+import Daiper from './Daiper';
+import Classy from './Classy';
 
 const Legs = ({character}) => {
 
@@ -16,17 +17,20 @@ const Legs = ({character}) => {
       {
         (() => {
           switch (character.legs) {
+          case `Default`:
+            return <Default />;
+
           case `Superman`:
             return <Superman />;
 
-          case `Evil`:
-            return <Evil />;
+          case `DaiperBoots`:
+            return <DaiperBoots color={character.bodyTypeColor.color} />;
 
-          case `Unicorn`:
-            return <Unicorn color={character.bodyTypeColor.color} />;
+          case `Classy`:
+            return <Classy />;
 
-          case `Suit`:
-            return <Suit />;
+          case `Daiper`:
+            return <Daiper color={character.bodyTypeColor.color} />;
 
           }
         })()

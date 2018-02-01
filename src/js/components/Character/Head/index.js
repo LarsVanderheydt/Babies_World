@@ -16,7 +16,7 @@ const Head = ({character}) => {
 
         <Hair type={character.hair} />
         <Eyes type={character.eyes} />
-        <Facial type={character.facialHair} />
+        {character.facialHair === `Default` ? `` : <Facial type={character.facialHair} />}
     </g>
   );
 };

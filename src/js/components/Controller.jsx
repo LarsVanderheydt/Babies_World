@@ -8,8 +8,6 @@ import BackButtonController from './BackButtonController';
 class Controller extends Component {
 
   componentDidMount() {
-    console.log(this.props);
-
     nipplejs.create({
       zone: document.getElementById(`nipple_js`),
       mode: `static`,

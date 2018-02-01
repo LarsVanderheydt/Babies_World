@@ -5,10 +5,11 @@ import {object} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import Superman from './Superman';
-import Evil from './Evil';
-import Unicorn from './Unicorn';
+import Tats from './Tats';
+import KaaDrie from './KaaDrie';
 import Suit from './Suit';
 import Bride from './Bride';
+import Default from './Default';
 
 const Body = ({character}) => {
 
@@ -17,14 +18,17 @@ const Body = ({character}) => {
       {
         (() => {
           switch (character.bodyType) {
+          case `Default`:
+            return <Default color={character.bodyTypeColor.color} />;
+
           case `Superman`:
             return <Superman />;
 
-          case `Evil`:
-            return <Evil color={character.bodyTypeColor.color} />;
+          case `Tats`:
+            return <Tats color={character.bodyTypeColor.color} />;
 
-          case `Unicorn`:
-            return <Unicorn color={character.bodyTypeColor.color} />;
+          case `KaaDrie`:
+            return <KaaDrie color={character.bodyTypeColor.color} />;
 
           case `Suit`:
             return <Suit />;

@@ -1,15 +1,15 @@
 import React from 'react';
-//import {} from 'prop-types'
+import {string} from 'prop-types';
 //import {inject, observer} from 'mobx-react'
 
-const Balloon = () => {
+const Balloon = ({color}) => {
 
   return (
     <g id='balloon' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
       <g transform='translate(153.000000, 10.000000)'>
           <path d='M2.7516776,251 C19.9374699,234.880734 58.9538634,116.979817 43.1615137,41.4495413' id='Stroke-46' stroke='#0C0901' strokeWidth='2.835' strokeLinecap='round'></path>
           <path d='M48.8200984,80.6874272 C50.9432404,86.2610088 45.1167923,91.8175501 43.6420656,82.53884 C42.1664098,73.2601299 48.8200984,80.6874272 48.8200984,80.6874272' id='Fill-48' fill='#AA0404'></path>
-          <g id='Group-52' fill='#C60505'>
+          <g id='Group-52' fill={color}>
               <path d='M0.197032787,42.140367 C0.197032787,65.2867119 19.1209126,84.0504587 42.4647923,84.0504587 C65.8086721,84.0504587 84.7325519,65.2867119 84.7325519,42.140367 C84.7325519,18.994022 65.8086721,0.230275229 42.4647923,0.230275229 C19.1209126,0.230275229 0.197032787,18.994022 0.197032787,42.140367' id='Fill-50'></path>
           </g>
           <path d='M56.1669781,20.7247706 C56.1669781,25.3031028 59.9102295,29.0146789 64.5276339,29.0146789 C69.1450383,29.0146789 72.8882896,25.3031028 72.8882896,20.7247706 C72.8882896,16.1464385 69.1450383,12.4348624 64.5276339,12.4348624 C59.9102295,12.4348624 56.1669781,16.1464385 56.1669781,20.7247706' id='Fill-53' fill='#FFFFFF'></path>
@@ -18,9 +18,9 @@ const Balloon = () => {
   );
 };
 
-//Balloon.propTypes = {
-//  : .isRequired
-//};
+Balloon.propTypes = {
+  color: string.isRequired
+};
 
 export default Balloon;
 

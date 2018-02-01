@@ -4,6 +4,7 @@ import {inject, observer} from 'mobx-react';
 
 const Colors = ({setCharacter, character, colors, selectType, selectedType}) => {
   let id = 0;
+
   const iconNameToCharacterName = selectedType(selectType);
   const characterColorName = `${iconNameToCharacterName}Color`;
 
@@ -38,6 +39,20 @@ const Colors = ({setCharacter, character, colors, selectType, selectedType}) => 
   return (
     <div>
       {
+        iconNameToCharacterName === `accessoire` || iconNameToCharacterName === `facialHair` ? (
+          character[iconNameToCharacterName] === `Default` ? `` : (
+            colors[0][selectType][character[iconNameToCharacterName]].primary.map(color => {
+              id ++;
+              return (<div key={id} style={{
+                backgroundColor: color,
+                width: `3rem`,
+                height: `3rem`,
+                borderRadius: `5rem`
+              }}
+              onClick={onColorClick} id={color}></div>);
+            })
+        )
+      ) : (
         colors[0][selectType][character[iconNameToCharacterName]].primary.map(color => {
           id ++;
           return (<div key={id} style={{
@@ -48,6 +63,7 @@ const Colors = ({setCharacter, character, colors, selectType, selectedType}) => 
           }}
           onClick={onColorClick} id={color}></div>);
         })
+      )
       }
     </div>
   );

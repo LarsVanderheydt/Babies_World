@@ -3,9 +3,9 @@
 import React from 'react';
 import {string, object} from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import Superman from './Superman';
-import Evil from './Evil';
-import Glasses from './Glasses';
+import Default from './Default';
+import Angry from './Angry';
+import Sunglasses from './Sunglasses';
 
 const Eyes = ({type, character}) => {
 
@@ -13,14 +13,14 @@ const Eyes = ({type, character}) => {
     <g>
       {(() => {
         switch (type) {
-        case `Superman`:
-          return <Superman color={character.eyesColor.Superman} />;
+        case `Default`:
+          return <Default color={character.eyesColor.Default} />;
 
-        case `Evil`:
-          return <Evil color={character.eyesColor.Evil} />;
+        case `Angry`:
+          return <Angry color={character.eyesColor.Angry} />;
 
-        case `Glasses`:
-          return <Glasses color={character.eyesColor.Glasses} />;
+        case `Sunglasses`:
+          return <Sunglasses color={character.eyesColor.Sunglasses} />;
 
         }
       })()}

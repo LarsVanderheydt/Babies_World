@@ -6,6 +6,7 @@ import {inject, observer} from 'mobx-react';
 
 import Balloon from './Balloon';
 import Nutella from './Nutella';
+import Cape from './Cape';
 
 const Accessoires = ({character}) => {
 
@@ -15,11 +16,13 @@ const Accessoires = ({character}) => {
         (() => {
           switch (character.accessoire) {
           case `Balloon`:
-            return <Balloon />;
+            return <Balloon color={character.accessoireColor.Balloon} />;
 
           case `Nutella`:
-            return <Nutella />;
+            return <Nutella color={character.accessoireColor.Nutella} />;
 
+          case `Cape`:
+            return <Cape color={character.accessoireColor.Cape} />;
           }
         })()
       }

@@ -1,51 +1,38 @@
-import React, {Component} from 'react';
+import React from 'react';
+import {Redirect} from 'react-router-dom';
 import DevTools from 'mobx-react-devtools';
-import {Route, Switch, BrowserRouter as Router, Redirect} from 'react-router-dom';
-
 import Character from '../components/Character';
-import World from './World';
 
-class App extends Component {
+const getUrlParameter = name => {
+  name = name.replace(/[\[]/, `\\[`).replace(/[\]]/, `\\]`);
+  const regex = new RegExp(`[\\?&]${  name  }=([^&#]*)`);
+  const results = regex.exec(location.search);
+  return results === null ? false : decodeURIComponent(results[1].replace(/\+/g, ` `));
+};
 
-  renderCharacter({match}) {
-    const {place} = match.params;
-    if (!place) return <Redirect to='/home' />;
+const App = () => {
 
-    return <Character place={place} />;
+  const targetPlace = getUrlParameter(`place`);
+  if (!targetPlace) {
+    return <Redirect to='/index.html?place=home' />;
   }
 
+  return (
+    <section>
 
-  render() {
-    return (
-      <section>
+      {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
 
-        {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
+      <header>
+        {
+          targetPlace ? (
+            <Character place={targetPlace} />
+          ) : `error`
+        }
 
-        <section className='character'>
-          <Router>
-            <Switch>
-              <Route
-                exact path='/place/world'
-                render={World}
-              />
+      </header>
 
-              <Route
-                exact path='/:place'
-                render={this.renderCharacter}
-              />
-
-              <Route
-                render={() => <Redirect to='/mars' />}
-              />
-
-            </Switch>
-          </Router>
-
-        </section>
-
-      </section>
-    );
-  }
-}
+    </section>
+  );
+};
 
 export default App;

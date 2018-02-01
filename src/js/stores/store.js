@@ -8,11 +8,12 @@ class Store {
   }
 
   @observable
-  // choosingVehicle = false;
   choosingVehicle = true;
 
   @observable
-  // chooseCharacter = false;
+  chooseName = true;
+
+  @observable
   chooseCharacter = true;
 
   @observable
@@ -33,6 +34,9 @@ class Store {
   @observable
   name = ``
 
+  @observable
+  infoPage = false;
+
   @action
   timerAction = bool => this.stopTimer = bool;
 
@@ -44,6 +48,9 @@ class Store {
 
   @action
   setName = name => this.name = name;
+
+  @action
+  backToInfo = bool => this.infoPage = bool;
 
   @observable
   selectType = `SkinTone`;
@@ -145,7 +152,7 @@ class Store {
   setType = type => this.selectType = type;
 
   @action
-  setVehicle = page => this.choosingVehicle = page;
+  setVehiclePage = page => this.choosingVehicle = page;
 
   @action
   setCharacterView = bool => this.chooseCharacter = bool;

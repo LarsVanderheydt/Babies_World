@@ -2,6 +2,8 @@ import nipplejs from 'nipplejs';
 import {observer} from 'mobx-react';
 import React, {Component} from 'react';
 
+import BackButtonController from './BackButtonController';
+
 @observer
 class Controller extends Component {
 
@@ -20,11 +22,11 @@ class Controller extends Component {
     return (
       <div className='controller_div'>
         <div className='controller_top_buttons'>
-          <button>Back</button>
-          <button>Share</button>
+          <BackButtonController />
+          <button className='controller_share'>Share</button>
         </div>
         <div id='nipple_js'></div>
-        <button>herstart</button>
+        <button className='general_btn_layout'>begin opnieuw</button>
       </div>
     );
   }

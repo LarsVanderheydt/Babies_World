@@ -1,78 +1,53 @@
 import React from 'react';
-import {bool, func, number} from 'prop-types';
+import {bool, func} from 'prop-types';
 import {inject, observer} from 'mobx-react';
-import Character from './Character/';
-import Carousel from './Carousel';
-import Win from './Win';
-import Lose from './Lose';
 
-const Vehicles = ({choosingVehicle, setVehicle, setCharacterView, chooseCharacter, winner, setWinner, setName}) => {
-  let $name;
-  let $submit;
+import Controller from './Controller';
+import Win from './Win';
+import SvgCharacter from './Character/SvgCharacter';
+
+const Vehicles = ({choosingVehicle, setVehiclePage, backToInfo, infoPage, setPlay}) => {
 
   const handleNextClick = () => {
-    choosingVehicle = !choosingVehicle;
-    setVehicle(choosingVehicle);
+    setVehiclePage(false);
   };
 
-  const handleCharacterBack = () => {
-    setCharacterView(true);
+  const handleBackClick = () => {
+    setPlay(false);
+    backToInfo(true);
   };
 
-  const onSubmit = e => {
-    e.preventDefault();
-
-    setName($name.value);
-    setWinner(2);
-  };
-
-  const onChange = () => {
-    if ($name.value) {
-      $submit.disabled = false;
-    } else {
-      $submit.disabled = true;
-    }
-  };
 
   return (
-    winner === 0 ? (
-      !chooseCharacter ? (
+    !infoPage ? (
+      choosingVehicle ? (
         <div className='vehicle_page'>
 
-          {<button onClick={choosingVehicle ? handleCharacterBack : handleNextClick} className='vehicle_back'>Back</button>}
+          <svg className='vehicle_back' width='13px' height='21px' viewBox='0 0 13 21' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleBackClick}>
+            <polygon transform='translate(-4.000000, 4.000000)' fill='#901947' points='4.25 6.25 14.75 -4.25 16.75 -2.25 8.25 6.25 16.75 14.75 14.75 16.75'></polygon>
+          </svg>
 
           <div className='carousel_div_height'>
-            <Carousel choosingVehicle={choosingVehicle} page='vehicles' />
+            <SvgCharacter />
           </div>
 
-          {
-            choosingVehicle ? (
-              <div className='vehicle_text'>
-                <h1 className='vehicle_name'>Ooievaar</h1>
-                <button className='vehicle_next' onClick={handleNextClick}>verder</button>
-              </div>
-            ) : (
-              <form onSubmit={onSubmit} className='vehicle_name_form'>
-                <input type='text' ref={$el => $name = $el} className='vehicle_name_input' onChange={onChange} />
-                <input type='submit' value='verder' className='vehicle_next' disabled='true' ref={$el => $submit = $el} />
-              </form>
-            )
-          }
+          <div className='vehicle_text'>
+            <h1 className='vehicle_name'>Ooievaar</h1>
+            <button className='general_btn_layout' onClick={handleNextClick}>verder</button>
+          </div>
 
         </div>
-      ) : <Character />
-    ) : winner === 1 ? <Win /> : <Lose />
+      ) : <Controller setVehiclePage={setVehiclePage} />
+    ) : <Win />
   );
 };
 
 Vehicles.propTypes = {
   choosingVehicle: bool.isRequired,
-  setVehicle: func.isRequired,
-  setCharacterView: func.isRequired,
-  chooseCharacter: bool.isRequired,
-  winner: number.isRequired,
-  setWinner: func.isRequired,
-  setName: func.isRequired
+  setVehiclePage: func.isRequired,
+  backToInfo: func.isRequired,
+  infoPage: bool.isRequired,
+  setPlay: func.isRequired
 };
 
 // export default Vehicles;
@@ -81,12 +56,11 @@ export default inject(
   ({store}) => {
     return ({
       choosingVehicle: store.choosingVehicle,
-      setVehicle: store.setVehicle,
+      setVehiclePage: store.setVehiclePage,
       setCharacterView: store.setCharacterView,
-      chooseCharacter: store.chooseCharacter,
-      winner: store.winner,
-      setWinner: store.setWinner,
-      setName: store.setName
+      backToInfo: store.backToInfo,
+      infoPage: store.infoPage,
+      setPlay: store.setPlay
     });
   }
 )(

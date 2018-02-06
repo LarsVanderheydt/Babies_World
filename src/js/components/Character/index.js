@@ -19,7 +19,6 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
   };
 
   const handleCharacterFinish = () => {
-
     setCharacterView(false);
   };
 

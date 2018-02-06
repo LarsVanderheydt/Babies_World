@@ -9,6 +9,7 @@ import Default from './Default';
 import Unicorn from './Unicorn';
 import Trump from './Trump';
 import Bride from './Bride';
+import Curly from './Curly';
 
 const Hair = ({type, character}) => {
 
@@ -30,6 +31,9 @@ const Hair = ({type, character}) => {
 
         case `Bride`:
           return <Bride color={character.hairColor.Bride} />;
+
+        case `Curly`:
+          return <Curly color={character.hairColor.Curly} />;
 
         }
       })()}

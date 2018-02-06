@@ -9,6 +9,7 @@ import Default from './Default';
 import DaiperBoots from './DaiperBoots';
 import Daiper from './Daiper';
 import Classy from './Classy';
+import Mermaid from './Mermaid';
 
 const Legs = ({character}) => {
 
@@ -31,6 +32,9 @@ const Legs = ({character}) => {
 
           case `Daiper`:
             return <Daiper color={character.bodyTypeColor.color} />;
+
+          case `Mermaid`:
+            return <Mermaid color={character.bodyTypeColor.color} />;
 
           }
         })()

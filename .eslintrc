@@ -1,6 +1,8 @@
 {
   "extends": "devine/react",
   "globals": {
-    "socket": true
+    "socket": true,
+    "io": true,
+    "time": true
     }
 }

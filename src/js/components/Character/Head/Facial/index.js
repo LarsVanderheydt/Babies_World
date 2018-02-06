@@ -6,7 +6,6 @@ import {inject, observer} from 'mobx-react';
 
 import Goatie from './Goatie';
 import Pacifier from './Pacifier';
-import Cigar from './Cigar';
 
 const Facial = ({type, character}) => {
 
@@ -19,9 +18,6 @@ const Facial = ({type, character}) => {
 
         case `Pacifier`:
           return <Pacifier color={character.facialHairColor.Pacifier} />;
-
-        case `Cigar`:
-          return <Cigar color={character.facialHairColor.Cigar} />;
 
         }
       })()}

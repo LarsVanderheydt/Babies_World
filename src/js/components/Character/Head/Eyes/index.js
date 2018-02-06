@@ -6,6 +6,9 @@ import {inject, observer} from 'mobx-react';
 import Default from './Default';
 import Angry from './Angry';
 import Sunglasses from './Sunglasses';
+import Blush from './Blush';
+import Chinese from './Chinese';
+import Glasses from './Glasses';
 
 const Eyes = ({type, character}) => {
 
@@ -21,6 +24,15 @@ const Eyes = ({type, character}) => {
 
         case `Sunglasses`:
           return <Sunglasses color={character.eyesColor.Sunglasses} />;
+
+        case `Blush`:
+          return <Blush color={character.eyesColor.Blush} />;
+
+        case `Chinese`:
+          return <Chinese color={character.eyesColor.Chinese} />;
+
+        case `Glasses`:
+          return <Glasses color={character.eyesColor.Glasses} />;
 
         }
       })()}

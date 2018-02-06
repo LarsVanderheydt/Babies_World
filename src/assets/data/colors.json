@@ -7,28 +7,22 @@
       "primary": ["#560909", "#46a62e", "#1f8990", "#FFFF00"]
     },
     "Blush": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#C1272D", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Chinese": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#42210B", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Sunglasses": {
       "primary": ["#FFFF00", "#46a62e", "#1f8990", "#FFFF00"]
     },
     "Glasses": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#FFFF00"]
+      "primary": ["#FFFF00", "#46a62e", "#1f8990", "#000000"]
     }
   },
 
   "Facial": {
-    "Cigar": {
-      "primary": ["#FFFF00", "#46a62e", "#1f8990", "#771a9d"]
-    },
     "Goatie": {
       "primary": ["#C1272D", "#46a62e", "#1f8990", "#771a9d"]
-    },
-    "Moustache": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Pacifier": {
       "primary": ["#7F47DD", "#46a62e", "#1f8990", "#771a9d"]
@@ -43,7 +37,7 @@
       "primary": ["#42210B", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Curly": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#42210B", "#46a62e", "#1f8990", "#771a9d"]
     },
     "Mohawk": {
       "primary": ["#C1272D", "#f7f771", "#ed5b5b", "#bbbbbb"]

@@ -1,5 +1,5 @@
 import React from 'react';
-import {bool, func} from 'prop-types';
+import {bool, func, object} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import Controller from './Controller';
@@ -7,10 +7,12 @@ import Win from './Win';
 
 import SvgPartner from './Partner';
 
-const Partners = ({choosingPartner, setPartnerPage, backToInfo, infoPage, setPlay}) => {
+const Partners = ({choosingPartner, setPartnerPage, backToInfo, infoPage, setPlay, character}) => {
 
   const handleNextClick = () => {
     setPartnerPage(false);
+
+    socket.emit(`setCharacter`, character);
   };
 
   const handleBackClick = () => {
@@ -48,7 +50,8 @@ Partners.propTypes = {
   setPartnerPage: func.isRequired,
   backToInfo: func.isRequired,
   infoPage: bool.isRequired,
-  setPlay: func.isRequired
+  setPlay: func.isRequired,
+  character: object.isRequired
 };
 
 // export default Partners;
@@ -61,7 +64,8 @@ export default inject(
       setCharacterView: store.setCharacterView,
       backToInfo: store.backToInfo,
       infoPage: store.infoPage,
-      setPlay: store.setPlay
+      setPlay: store.setPlay,
+      character: store.character
     });
   }
 )(

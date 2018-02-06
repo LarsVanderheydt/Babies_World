@@ -8,27 +8,31 @@ class Store {
   }
 
   @observable
+  characters = []
+
+  @action
+  addCharacter = char => this.character.push(char)
+
+  @observable
   character = {
     eyesColor: {
       Default: `#C1272D`,
       Angry: `#560909`,
       Sunglasses: `#FFFF00`,
-      Blush: ``,
-      Chinese: ``,
-      Glasses: ``
+      Blush: `#C1272D`,
+      Chinese: `#42210B`,
+      Glasses: `#FFFF00`
     },
 
     facialHairColor: {
-      Cigar: `#FFFF00`,
       Pacifier: `#7F47DD`,
-      Moustache: ``,
       Goatie: `#C1272D`
     },
 
     hairColor: {
       Default: `#DB917D`,
       Bride: `#42210B`,
-      Curly: ``,
+      Curly: `#42210B`,
       Mohawk: `#C1272D`,
       Trump: {
         primary: `#FFD63F`,
@@ -66,7 +70,8 @@ class Store {
     facialHair: `Default`,
     bodyType: `Default`,
     legs: `Default`,
-    accessoire: `Default`
+    accessoire: `Default`,
+    partner: `Unicorn`
   }
 
   @observable
@@ -80,9 +85,6 @@ class Store {
 
   @observable
   play = false;
-
-  @action
-  setPlay = bool => this.play = bool;
 
   @observable
   winner = 0;
@@ -98,6 +100,15 @@ class Store {
 
   @observable
   infoPage = false;
+
+  @observable
+  partner = 0;
+
+  @action
+  setPartner = partner => this.partner = partner
+
+  @action
+  setPlay = bool => this.play = bool;
 
   @action
   timerAction = bool => this.stopTimer = bool;
@@ -129,7 +140,7 @@ class Store {
     types: [`Default`, `Angry`, `Blush`, `Chinese`, `Sunglasses`, `Glasses`]
   }, {
     type: `Facial`,
-    types: [`Default`, `Cigar`, `Goatie`, `Moustache`, `Pacifier`]
+    types: [`Default`, `Goatie`, `Pacifier`]
   }, {
     type: `Hair`,
     types: [`Default`, `Bride`, `Curly`, `Mohawk`, `Trump`, `Unicorn`]
@@ -184,6 +195,9 @@ class Store {
       break;
 
     case `SkinTone`: this.character.bodyTypeColor.color = type;
+      break;
+
+    case `Partner`: this.character.partner = type;
       break;
     }
   }

@@ -7,9 +7,10 @@ import SvgCharacter from './Character/SvgCharacter';
 
 import Win from './Win';
 
-const Vehicles = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner, setName}) => {
+const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner, setName}) => {
   let $name;
   let $submit;
+  let $svg;
 
   const handleCharacterBack = () => {
     setCharacterView(true);
@@ -19,7 +20,11 @@ const Vehicles = ({chooseName, setCharacterView, chooseCharacter, winner, setWin
     e.preventDefault();
 
     setName($name.value);
-    setWinner(1);
+    if (time <= 10) {
+      setWinner(1);
+    } else {
+      setWinner(2);
+    }
   };
 
   const onChange = () => {
@@ -30,6 +35,14 @@ const Vehicles = ({chooseName, setCharacterView, chooseCharacter, winner, setWin
       $submit.classList.add(`btn_disabled`);
       $submit.disabled = true;
     }
+  };
+
+  const onFocus = () => {
+    $svg.classList.add(`hide`);
+  };
+
+  const onBlur = () => {
+    $svg.classList.remove(`hide`);
   };
 
   return (
@@ -43,12 +56,12 @@ const Vehicles = ({chooseName, setCharacterView, chooseCharacter, winner, setWin
 
           {chooseName ? <h1 className='vehicles_title'>hoe heet de baby?</h1> : ``}
 
-          <div className='carousel_div_height'>
+          <div className='carousel_div_height' ref={$el => $svg = $el}>
             <SvgCharacter />
           </div>
 
           <form onSubmit={onSubmit} className='vehicle_name_form'>
-            <input type='text' ref={$el => $name = $el} className='vehicle_name_input' onChange={onChange} />
+            <input type='text' ref={$el => $name = $el} className='vehicle_name_input' onChange={onChange} placeholder='voornaam' onFocus={onFocus} onBlur={onBlur} />
             <input type='submit' value='bevestig' className='general_btn_layout btn_disabled' disabled='true' ref={$el => $submit = $el} />
           </form>
 
@@ -58,7 +71,7 @@ const Vehicles = ({chooseName, setCharacterView, chooseCharacter, winner, setWin
   );
 };
 
-Vehicles.propTypes = {
+Name.propTypes = {
   chooseName: bool.isRequired,
   setCharacterView: func.isRequired,
   chooseCharacter: bool.isRequired,
@@ -67,7 +80,7 @@ Vehicles.propTypes = {
   setName: func.isRequired
 };
 
-// export default Vehicles;
+// export default Name;
 
 export default inject(
   ({store}) => {
@@ -81,5 +94,5 @@ export default inject(
     });
   }
 )(
-   observer(Vehicles)
+   observer(Name)
 );

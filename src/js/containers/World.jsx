@@ -1,55 +1,59 @@
-import React from 'react';
-import io from 'socket.io-client';
-//import {} from 'prop-types'
-//import {inject, observer} from 'mobx-react'
+import React, {Component} from 'react';
+import ControllerCharacter from '../components/ControllerCharacter';
 
-const World = () => {
-  const socket = io.connect(`http://localhost:8000`);
+class World extends Component {
+  state = {
+    players: []
+  }
 
-  let connectionUrlEl;
-  let bal;
+  componentDidMount() {
+    socket.on(`update`, users => {
 
+      const currentSocketIds = [];
+      let {players} = this.state;
+      players = [];
 
-  const init = () => {
-    connect();
-  };
+      for (const clientId in users) {
+        if (users[clientId].playing === true) {
+          currentSocketIds.push(clientId);
 
-  const connect = () => {
+          players.push(users[clientId]);
+        }
+      }
 
+      const disc = players.filter(player => {
+        return currentSocketIds.indexOf(player.id) === - 1;
+      });
 
-    socket.on(`sid`, sid => {
-      connectionUrlEl.textContent = `controller/${sid}`;
+      players.forEach(player => {
+        delete player[disc];
+      });
+
+      this.setState({players});
     });
+  }
 
-    socket.on(`update`, data => {
-      console.log(data);
-      bal.style.left = `${100 * data.x  }%`;
-      bal.style.top = `${100 * data.y  }%`;
-    });
-  };
+  render() {
+    const {players} = this.state;
 
-  init();
-
-  return (
-    <div>
-      <p ref={$el => connectionUrlEl = $el}></p>
-      <div ref={$el => bal = $el} className='bal'>
-
+    return (
+      <div>
+        {
+          players.map(player => {
+            return (
+              <div key={player.id} style={{
+                position: `absolute`,
+                left: `${player.x}px`,
+                bottom: `${player.y}px`
+              }}>
+                <ControllerCharacter character={player.character} id={player.id} />
+              </div>
+            );
+          })
+        }
       </div>
-    </div>
-  );
-};
-
-//World.propTypes = {
-//  : .isRequired
-//};
+    );
+  }
+}
 
 export default World;
-
-/*
-export default inject(
-
- )(
-   observer(World)
- );
- */

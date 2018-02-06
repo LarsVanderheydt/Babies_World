@@ -1,6 +1,6 @@
 import React from 'react';
 import {Redirect} from 'react-router-dom';
-// import DevTools from 'mobx-react-devtools';
+import DevTools from 'mobx-react-devtools';
 import Character from '../components/Character';
 import World from './World';
 
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <section>
 
-      {/* {process.env.NODE_ENV !== `production` ? <DevTools /> : null} */}
+      {process.env.NODE_ENV !== `production` ? <DevTools /> : null}
 
       <header>
         {

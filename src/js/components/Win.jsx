@@ -6,7 +6,6 @@ import SvgCharacter from './Character/SvgCharacter';
 import Partners from './Partners';
 
 const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win}) => {
-  console.log(play);
 
   const handlePlay = () => {
     setPlay(true);

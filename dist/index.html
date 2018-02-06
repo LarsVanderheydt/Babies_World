@@ -1,0 +1,9 @@
+<!DOCTYPE html> <html lang=en> <head> <meta charset=UTF-8> <title>Babies World</title> <meta name=viewport content="width=device-width,initial-scale=1"/> <meta name=mobile-web-app-capable content=yes> <link href="https://babiesworld.herokuapp.com/css/style.css" rel="stylesheet"></head> <body> <div class=react-mount></div> <p id=timer style=display:none></p> <script src=https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js></script> <script> const $timer = document.getElementById(`timer`);
+    let time = 0;
+
+    setInterval(() => {
+      $timer.innerHTML = time;
+      time ++;
+    }, 1000);
+
+    const socket = io(`http://192.168.0.213:8000`); </script> <script type="text/javascript" src="https://babiesworld.herokuapp.com/js/main.f35dc6774668aa121cf9.js"></script></body> </html> 

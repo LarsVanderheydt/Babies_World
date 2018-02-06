@@ -16,6 +16,11 @@ const io = require(`socket.io`)(server.listener);
 const users = {};
 const playing = [];
 
+io.configure(() => {
+  io.set(`transports`, [`xhr-polling`]);
+  io.set(`polling duration`, 10);
+});
+
 io.on(`connection`, socket => {
 
   users[socket.id] = {

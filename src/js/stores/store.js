@@ -8,10 +8,28 @@ class Store {
   }
 
   @observable
-  characters = []
-
-  @action
-  addCharacter = char => this.character.push(char)
+  previewTypes = [{
+    type: `SkinTone`,
+    types: [`#FBEFEF`, `#F4C0B3`, `#EFA389`, `#A67C52`, `#8C6239`, `#4D3319`, `#DA3E47`, `#E8852D`, `#E9C858`, `#7ED321`, `#2685AB`, `#7BB4CB`]
+  }, {
+    type: `Eyes`,
+    types: [`Default`, `Angry`, `Blush`, `Chinese`, `Sunglasses`, `Glasses`]
+  }, {
+    type: `Facial`,
+    types: [`Default`, `Goatie`, `Pacifier`, `HeartPacifier`, `Mouse`]
+  }, {
+    type: `Hair`,
+    types: [`Default`, `Bride`, `Curly`, `Mohawk`, `Trump`, `Unicorn`]
+  }, {
+    type: `Body`,
+    types: [`Default`, `Bride`, `KaaDrie`, `Suit`, `Superman`, `Tats`]
+  }, {
+    type: `Legs`,
+    types: [`Default`, `Classy`, `DaiperBoots`, `Daiper`, `Mermaid`, `Superman`]
+  }, {
+    type: `Accessoire`,
+    types: [`Default`, `Balloon`, `Nutella`, `Cape`, `Wings`]
+  }]
 
   @observable
   character = {
@@ -26,7 +44,9 @@ class Store {
 
     facialHairColor: {
       Pacifier: `#7F47DD`,
-      Goatie: `#C1272D`
+      HeartPacifier: `#AA242E`,
+      Goatie: `#C1272D`,
+      Mouse: `#CCCCCC`
     },
 
     hairColor: {
@@ -104,8 +124,20 @@ class Store {
   @observable
   partner = 0;
 
+  @observable
+  info = false;
+
   @action
-  setPartner = partner => this.partner = partner
+  setInfo = bool => this.info = bool;
+
+  @action
+  setPartner = partner => {
+    if (partner >=  3) {
+      this.partner = 0;
+    } else {
+      this.partner = partner;
+    }
+  }
 
   @action
   setPlay = bool => this.play = bool;
@@ -127,34 +159,6 @@ class Store {
 
   @observable
   selectType = `SkinTone`;
-
-  @observable
-  id = ``;
-
-  @observable
-  previewTypes = [{
-    type: `SkinTone`,
-    types: [`#FBEFEF`, `#F4C0B3`, `#EFA389`, `#A67C52`, `#8C6239`, `#4D3319`, `#DA3E47`, `#E8852D`, `#E9C858`, `#7ED321`, `#2685AB`, `#7BB4CB`]
-  }, {
-    type: `Eyes`,
-    types: [`Default`, `Angry`, `Blush`, `Chinese`, `Sunglasses`, `Glasses`]
-  }, {
-    type: `Facial`,
-    types: [`Default`, `Goatie`, `Pacifier`]
-  }, {
-    type: `Hair`,
-    types: [`Default`, `Bride`, `Curly`, `Mohawk`, `Trump`, `Unicorn`]
-  }, {
-    type: `Body`,
-    types: [`Default`, `Bride`, `KaaDrie`, `Suit`, `Superman`, `Tats`]
-  }, {
-    type: `Legs`,
-    types: [`Default`, `Classy`, `DaiperBoots`, `Daiper`, `Mermaid`, `Superman`]
-  }, {
-    type: `Accessoire`,
-    types: [`Default`, `Balloon`, `Nutella`, `Cape`, `Wings`]
-  },
-  ]
 
   @observable
   colors = []
@@ -199,6 +203,10 @@ class Store {
 
     case `Partner`: this.character.partner = type;
       break;
+
+    default:
+    // if 1 argument is given (the character object) set character (selectType) as the character
+      this.character = selectType;
     }
   }
 

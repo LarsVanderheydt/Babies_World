@@ -50,7 +50,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
       !chooseCharacter ? (
         <div className='vehicle_page'>
 
-          <svg className='vehicle_back' width='13px' height='21px' viewBox='0 0 13 21' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleCharacterBack}>
+          <svg className='back_btn' width='13px' height='21px' viewBox='0 0 13 21' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleCharacterBack}>
             <polygon transform='translate(-4.000000, 4.000000)' fill='#901947' points='4.25 6.25 14.75 -4.25 16.75 -2.25 8.25 6.25 16.75 14.75 14.75 16.75'></polygon>
           </svg>
 

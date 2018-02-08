@@ -11,7 +11,7 @@ import Accessoires from './Accessoires';
 const ControllerCharacter = ({character}) => {
 
   return (
-    <svg width='330px' height='330px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
+    <svg width='130px' height='130px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
       <defs>
           <polygon id='legs-evil-1' points='0.202469892 0.0946553588 31.880986 0.0946553588 31.880986 23.6522455 0.202469892 23.6522455'></polygon>
           <polygon id='legs-evil-2' points='0.0499817204 0.0946553588 31.7284978 0.0946553588 31.7284978 23.6522455 0.0499817204 23.6522455'></polygon>

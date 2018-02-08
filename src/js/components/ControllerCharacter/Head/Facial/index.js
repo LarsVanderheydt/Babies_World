@@ -2,9 +2,12 @@
 
 import React from 'react';
 import {string, object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
 
 import Goatie from './Goatie';
 import Pacifier from './Pacifier';
+import HeartPacifier from './HeartPacifier';
+import Mouse from './Mouse';
 
 const Facial = ({type, character}) => {
 
@@ -18,6 +21,11 @@ const Facial = ({type, character}) => {
         case `Pacifier`:
           return <Pacifier color={character.facialHairColor.Pacifier} />;
 
+        case `HeartPacifier`:
+          return <HeartPacifier color={character.facialHairColor.HeartPacifier} />;
+
+        case `Mouse`:
+          return <Mouse color={character.facialHairColor.Mouse} />;
         }
       })()}
     </g>
@@ -30,4 +38,12 @@ Facial.propTypes = {
 };
 
 
-export default Facial;
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Facial)
+ );

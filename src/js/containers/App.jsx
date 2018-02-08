@@ -23,7 +23,7 @@ const App = () => {
 
       targetId = getUrlParameter(`id`);
       if (!targetId) {
-        return <Redirect to='/index.html?world=1' />;
+        return <Redirect to='/index.html?place=mars' />;
       }
     }
   }

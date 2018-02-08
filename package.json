@@ -4,6 +4,7 @@
   "main": "app.js",
   "scripts": {
     "development": "npm run clean && NODE_ENV=development webpack-dev-server --open --hot --host 0.0.0.0",
+    "server": "nodemon app.js",
     "start": "forever app.js",
     "clean": "rimraf ./dist",
     "production": "npm run clean && NODE_ENV=production webpack -p"
@@ -58,7 +59,7 @@
     "hapi": "^17.2.0",
     "inert": "^5.1.0",
     "nipplejs": "^0.6.8",
-    "nodemon": "^1.14.11",
+    "nodemon": "^1.14.12",
     "socket.io": "^2.0.4"
   }
 }

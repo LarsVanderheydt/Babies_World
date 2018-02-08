@@ -36,6 +36,8 @@ const Partner = ({partner, setPartner}) => {
           <polygon id='path-3' points='0 0 13 0 13 43 0 43'></polygon>
       </defs>
       <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
+        <circle id='Pink-oval' fill='#9B1B51' cx='140' cy='112' r='102.5'></circle>
+        <ellipse id='Pink-oval' fill='#9B1B51' opacity='0.100000001' cx='140' cy='250' rx='87.5' ry='10'></ellipse>
         {
           (() => {
             switch (partner) {

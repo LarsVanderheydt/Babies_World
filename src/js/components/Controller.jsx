@@ -1,14 +1,17 @@
 import nipplejs from 'nipplejs';
 import {observer} from 'mobx-react';
 import React, {Component} from 'react';
+
 import BackButtonController from './BackButtonController';
+import Restart from './Restart';
+
 let $controllerDiv;
 let x = 1, y = 1;
 let $nipple;
 
 const move = {
   angle: 0,
-  speed: 3,
+  speed: 1,
   x: 0,
   y: 0,
   move: false
@@ -62,7 +65,7 @@ class Controller extends Component {
           <button className='controller_share'>Share</button>
         </div>
         <div ref={$el => $nipple = $el}></div>
-        <button className='general_btn_layout'>begin opnieuw</button>
+        <Restart />
       </div>
     );
   }

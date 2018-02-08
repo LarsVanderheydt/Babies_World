@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
 
 import Balloon from './Balloon';
 import Nutella from './Nutella';
@@ -37,4 +38,12 @@ Accessoires.propTypes = {
   character: object.isRequired
 };
 
-export default Accessoires;
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Accessoires)
+ );

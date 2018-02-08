@@ -2,6 +2,7 @@
 
 import React from 'react';
 import {string, object} from 'prop-types';
+import {inject, observer} from 'mobx-react';
 import Default from './Default';
 import Angry from './Angry';
 import Sunglasses from './Sunglasses';
@@ -44,4 +45,12 @@ Eyes.propTypes = {
   character: object.isRequired
 };
 
-export default Eyes;
+export default inject(
+  ({store}) => {
+    return ({
+      character: store.character
+    });
+  }
+ )(
+   observer(Eyes)
+ );

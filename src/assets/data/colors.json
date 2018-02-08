@@ -26,6 +26,12 @@
     },
     "Pacifier": {
       "primary": ["#7F47DD", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "HeartPacifier": {
+      "primary": ["#AA242E", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Mouse": {
+      "primary": ["#CCCCCC", "#46a62e", "#1f8990", "#771a9d"]
     }
   },
 

@@ -49,15 +49,10 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
                 </g>
             </svg>
           </div>
+
           <SvgCharacter />
 
-          {
-            win ? (
-              <h1 className='win_lose_greeting'>Welkom {name}</h1>
-            ) : (
-              <h1 className='win_lose_greeting'>Het spijt ons</h1>
-            )
-          }
+          <h1 className='win_lose_greeting'>{win ? `Welkom ${name}` : `Het spijt ons`}</h1>
 
           <div className='win_lose_text_div'>
             {
@@ -78,23 +73,15 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
               )
             }
 
-            {
-              win ? (
-                <p className='win_lose_second_par'>Speel het spel of deel je baby en maak kans op een gratis drankje.</p>
-              ) : (
-                <p className='win_lose_second_par'>Probeer opnieuw en maak kans op een gratis drankje.</p>
-              )
-            }
+            <p className='win_lose_second_par'>
+              {win ? `Speel het spel of deel je baby en maak kans op een gratis drankje.` : `Probeer opnieuw en maak kans op een gratis drankje.`}
+            </p>
 
           </div>
 
-          {
-            win ? (
-              <button className='win_lose_button' onClick={handlePlay}>speel</button>
-            ) : (
-              <Restart />
-            )
-          }
+          {win ? <button className='general_btn_layout' onClick={handlePlay}>speel</button> : (
+            <Restart />
+          )}
 
         </div>
 

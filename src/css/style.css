@@ -12,13 +12,11 @@ body {
   line-height: 2.5rem;
 }
 
-h1 {
-  font-size: 3rem;
-}
+h1 { font-size: 3rem; }
 
-.hide {
-  visibility: hidden;
-}
+.btn_disabled { opacity: .5; }
+
+.hide { visibility: hidden; }
 
 .main_div {
   display: flex;
@@ -27,13 +25,9 @@ h1 {
   margin-top: 2vh;
 }
 
-.svg_character {
-  height: 45vh;
-}
+.svg_character { height: 45vh; }
 
-.svg_character_controller {
-  height: 22vh;
-}
+.svg_character_controller { height: 22vh; }
 
 .character {
   display: flex;
@@ -56,22 +50,24 @@ h1 {
   height: 36vh;
   background-color: white;
   border-radius: 1rem;
-  margin-top: -2rem;
+  margin-top: -3rem;
   box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .12);
   overflow: scroll;
+
+  & .preview_imgs {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 1rem;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    min-width: 25%;
+  }
 }
 
 ::-webkit-scrollbar {
   width: 0;
   background: transparent;
-}
-
-.preview_imgs {
-  margin-top: 3rem;
-  display: flex;
-  justify-content: flex-start;
-  padding: 0 1rem;
-  flex-wrap: wrap;
 }
 
 .icons_div {
@@ -98,13 +94,11 @@ h1 {
   right: 4rem;
 }
 
-.Pink-oval {
-  opacity: .1;
-}
+.Pink-oval { opacity: .1; }
 
 .skinTone_div {
   margin: .5rem;
-  width: 9rem;
+  width: 27vw;
   height: 8rem;
   display: flex;
   align-items: center;
@@ -119,63 +113,18 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  & img { margin-top: 1.5rem; }
 }
 
-.skinTone_head img {
-  margin-top: 1.5rem;
-}
-
-.bal {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-  margin-right: -10px;
-  background: red;
-  border-radius: 50%;
-}
-
-.carousel_div_height {
-  height: 65vh;
-}
+.partner_div_height { height: 65vh; }
 
 .partners_div {
   margin-top: 5rem;
   margin-left: 0;
 }
 
-.carousel_div_vehicle {
-  margin-top: 1rem;
-  animation: vehicleup .4s ease-out;
-}
-
-@keyframes vehicleup {
-
-  from { margin-top: 5rem; }
-
-  to { margin-top: 1rem; }
-}
-
-@keyframes vehicledown {
-
-  from { margin-top: 13rem; }
-
-  to { margin-top: 1rem; }
-}
-
-.carousel_div_name {
-  margin-top: 1rem;
-  animation: vehicledown .4s ease-out;
-}
-
-.carousel_item {
-  width: 25rem;
-  height: 25rem;
-  background-color: rgb(189, 189, 189);
-  border-radius: 50rem;
-}
-
-.vehicle_page {
+.partner_page {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -187,13 +136,6 @@ h1 {
 .vehicle_name {
   margin-top: -10rem;
   margin-bottom: 9rem;
-}
-
-.carousel_item_win_lose {
-  width: 15rem;
-  height: 15rem;
-  background-color: rgb(189, 189, 189);
-  border-radius: 50rem;
 }
 
 .back_btn {
@@ -216,10 +158,6 @@ h1 {
   border: none;
 }
 
-.btn_disabled {
-  opacity: .5;
-}
-
 .win_lose_screen {
   display: flex;
   flex-direction: column;
@@ -230,12 +168,10 @@ h1 {
 
 .win_lose_text_div {
   width: 80vw;
-  margin-bottom: 13rem;
+  margin-bottom: 10rem;
 }
 
-.win_lose_greeting {
-  margin: 2.5rem 0;
-}
+.win_lose_greeting { margin: 2.5rem 0; }
 
 .win_lose_button {
   margin-top: 6vh;
@@ -249,9 +185,7 @@ h1 {
   border: none;
 }
 
-.win_lose_second_par {
-  margin-top: 4vh;
-}
+.win_lose_second_par { margin-top: 4vh; }
 
 .vehicle_name_form {
   display: flex;
@@ -270,15 +204,11 @@ h1 {
   width: 20rem;
   font-size: 3rem;
   border-bottom: .2rem solid #9b9b9b;
+
+  & ::placeholder { color: #9b9b9b; }
 }
 
-.vehicle_name_input::placeholder {
-  color: #9b9b9b;
-}
-
-.vehicle_name_input:focus {
-  outline: none;
-}
+.vehicle_name_input:focus { outline: none; }
 
 .vehicle_text {
   display: flex;
@@ -294,22 +224,20 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   margin-top: 5vh;
-}
 
-.controller_top_buttons {
-  width: 80vw;
-  display: flex;
-  justify-content: space-between;
-}
-
-.vehicles_title {
-  margin-top: 10vh;
+  & .controller_top_buttons {
+    width: 80vw;
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .controller_share {
   position: absolute;
   right: 10%;
 }
+
+.vehicles_title { margin-top: 10vh; }
 
 .partners_page_div {
   display: flex;
@@ -350,18 +278,27 @@ h1 {
   height: 6rem;
   justify-content: space-between;
 
-  & h1 {
-    font-size: 3.5rem;
-  }
+  & h1 { font-size: 3.5rem; }
 }
 
 @media (width >= 530px) {
 
-  .first_info_paragraph_div {
-    width: 37rem;
-  }
+  .first_info_paragraph_div { width: 37rem; }
 
-  .win_lose_text_div {
-    width: 40rem;
-  }
+  .win_lose_text_div { width: 40rem; }
+}
+
+@media (width >= 462px) {
+
+  .skinTone_div { width: 21vw; }
+}
+
+@media (width >= 600px) {
+
+  .skinTone_div { width: 17vw; }
+}
+
+@media (width >= 700px) {
+
+  .skinTone_div { width: 10rem; }
 }

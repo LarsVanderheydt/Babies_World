@@ -48,7 +48,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
   return (
     winner === 0 ? (
       !chooseCharacter ? (
-        <div className='vehicle_page'>
+        <div className='partner_page'>
 
           <svg className='back_btn' width='13px' height='21px' viewBox='0 0 13 21' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleCharacterBack}>
             <polygon transform='translate(-4.000000, 4.000000)' fill='#901947' points='4.25 6.25 14.75 -4.25 16.75 -2.25 8.25 6.25 16.75 14.75 14.75 16.75'></polygon>
@@ -56,7 +56,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
 
           {chooseName ? <h1 className='vehicles_title'>hoe heet de baby?</h1> : ``}
 
-          <div className='carousel_div_height' ref={$el => $svg = $el}>
+          <div className='partner_div_height' ref={$el => $svg = $el}>
             <SvgCharacter />
           </div>
 

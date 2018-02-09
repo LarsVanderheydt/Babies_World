@@ -2,11 +2,13 @@
 @import 'vars';
 
 html {
-  color: #901947;
+  /* color: #901947; */
+  color: #373737;
 }
 
 body {
-  background-color: rgba(255, 50, 137, .16);
+  /* background-color: rgba(255, 50, 137, .16); */
+  background-color: rgb(238, 238, 238);
   font-family: 'Helvetica neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -18,9 +20,23 @@ h1 { font-size: 3rem; }
 
 .hide { visibility: hidden; }
 
+.bold { font-weight: bold; }
+
+.play_btn_div {
+
+  & button {
+    font-size: 2.5rem;
+    /* text-transform: uppercase; */
+  }
+}
+
 .game_field {
   width: 100vw;
   height: 100vh;
+}
+
+.controller_restart_btn {
+  font-size: 2rem;
 }
 
 .general_btn_layout {
@@ -35,15 +51,11 @@ h1 { font-size: 3rem; }
   border: none;
 }
 
-.mobile_btn_pos {
-  bottom: calc(4% + -4rem);
-}
+.mobile_btn_pos { bottom: calc(4% + -4rem); }
 
 .pc_btn_pos { bottom: 4%; }
 
-.won_drink {
-  background-color: #f7e31b;
-}
+.won_drink { background-color: #f7e31b; }
 
 .main_div {
   display: flex;
@@ -54,7 +66,7 @@ h1 { font-size: 3rem; }
 
 .svg_character {
   height: 45vh;
-  width: 39vw;
+  width: 50vw;
 }
 
 .svg_character_controller { height: 22vh; }

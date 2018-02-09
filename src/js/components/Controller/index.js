@@ -64,7 +64,7 @@ class Controller extends Component {
 
           </div>
 
-          <Restart />
+          <Restart page='controller' />
         </div>
       )
     );

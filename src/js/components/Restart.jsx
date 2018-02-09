@@ -26,7 +26,7 @@ const character = {
   partner: `Unicorn`
 };
 
-const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, setCharacter, setWinner, place}) => {
+const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, setCharacter, setWinner, place, page}) => {
 
   const handleRestart = () => {
     setPlay(false);
@@ -41,7 +41,11 @@ const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, s
   };
 
   return (
-    <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
+    page === `controller` ? (
+      <button className={isMobile ? `controller_restart_btn mobile_btn_pos` : `controller_restart_btn pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
+    ) : (
+      <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
+    )
   );
 };
 
@@ -52,7 +56,8 @@ HandleRestart.propTypes = {
   setCharacterView: func.isRequired,
   setCharacter: func.isRequired,
   setWinner: func.isRequired,
-  place: string.isRequired
+  place: string.isRequired,
+  page: string.isRequired
 };
 
 export default inject(

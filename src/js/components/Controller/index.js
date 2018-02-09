@@ -20,17 +20,17 @@ class Controller extends Component {
   }
 
   onShare() {
-    const random = Math.floor(Math.random() * 100);
-    if (random >= 0 && random <= 100) {
-      this.setState({win: 1});
-    } else {
-      this.setState({win: 2});
-    }
-
     if (navigator.share !== undefined) {
       navigator.share({
         title: `Speel dit spel en win ...`,
         url: `https://babiesworld.herokuapp.com/index.html?place=home`
+      }).then(() => {
+        const random = Math.floor(Math.random() * 100);
+        if (random >= 0 && random <= 100) {
+          this.setState({win: 1});
+        } else {
+          this.setState({win: 2});
+        }
       });
     }
   }

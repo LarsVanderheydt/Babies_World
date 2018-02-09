@@ -60,7 +60,7 @@ class Controller extends Component {
     if (navigator.share !== undefined) {
       navigator.share({
         title: `Speel dit spel en win ...`,
-        url: `https://babiesworld.herokuapp.com/index.html?place=mars`
+        url: `https://babiesworld.herokuapp.com/index.html?place=home`
       });
     }
   }

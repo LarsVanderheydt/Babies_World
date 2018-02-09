@@ -103,8 +103,6 @@ Win.propTypes = {
   setInfo: func.isRequired
 };
 
-// export default Win;
-
 export default inject(
   ({store}) => {
     return ({

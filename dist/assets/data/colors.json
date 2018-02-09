@@ -1,0 +1,101 @@
+{
+  "Eyes": {
+    "Default": {
+      "primary": ["#C1272D", "#43bbad", "#d19443", "#e8d450"]
+    },
+    "Angry": {
+      "primary": ["#560909", "#3d91cf", "#2ac46c", "#39c475"]
+    },
+    "Blush": {
+      "primary": ["#C1272D", "#7875eb", "#3ab7bf", "#d13aab"]
+    },
+    "Chinese": {
+      "primary": ["#42210B", "#2ea661", "#686cdd", "#d652c1"]
+    },
+    "Sunglasses": {
+      "primary": ["#FFFF00", "#b1cc45", "#74dda7", "#69dfff"]
+    },
+    "Glasses": {
+      "primary": ["#FFFF00", "#ffde52", "#72e95e", "#a71212"]
+    }
+  },
+
+  "Facial": {
+    "Goatie": {
+      "primary": ["#C1272D", "#5359e3", "#46dae4", "#cfa62c"]
+    },
+    "Pacifier": {
+      "primary": ["#7F47DD", "#6dec4e", "#4ed0d9", "#da2e2e"]
+    },
+    "HeartPacifier": {
+      "primary": ["#AA242E", "#96c936", "#5eb0d9", "#b84fe3"]
+    },
+    "Mouse": {
+      "primary": ["#CCCCCC", "#fff571", "#7f52ff", "#5bdde6"]
+    }
+  },
+
+  "Hair": {
+    "Default": {
+      "primary": ["#DB917D", "#99d64b", "#b765e3", "#9d1a5d"]
+    },
+    "Bride": {
+      "primary": ["#42210B", "#c7d744", "#d2822e", "#47e8e8"]
+    },
+    "Curly": {
+      "primary": ["#42210B", "#25836d", "#5f1c65", "#772f62"]
+    },
+    "Mohawk": {
+      "primary": ["#C1272D", "#f7f771", "#ed5b5b", "#858585"]
+    },
+    "Trump": {
+      "primary": ["#FFD63F", "#3f952a", "#1f8990", "#672183"],
+      "secondary": ["#E8BF3D", "#2c651e", "#165b60", "#49185c"]
+    },
+    "Unicorn": {
+      "primary": ["#93278F", "#50c134", "#4b8ddb", "#e86565"],
+      "secondary": ["#842484", "#3c9028", "#2d62a2", "#b53b3b"],
+      "tertiary": ["#E39AE5", "##75e05b", "#328efa", "#f72f2f"]
+    }
+  },
+
+
+
+
+
+  "Legs": {
+    "Default": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Classy": {
+      "primary": ["#7F47DD", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "DaiperBoots": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Daiper": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Mermaid": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Superman": {
+      "primary": ["#C1272D", "#46a62e", "#1f8990", "#771a9d"]
+    }
+  },
+
+  "Accessoire": {
+    "Nutella": {
+      "primary": ["#42210B", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Cape": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Balloon": {
+      "primary": ["#C60505", "#46a62e", "#1f8990", "#771a9d"]
+    },
+    "Wings": {
+      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+    }
+  }
+}

@@ -63,8 +63,8 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
           <div className='icons_div'>
             {
               previewTypes.map(icon => {
-                return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
-                // return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                // return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
               })
             }
           </div>

@@ -82,8 +82,6 @@ Name.propTypes = {
   setName: func.isRequired
 };
 
-// export default Name;
-
 export default inject(
   ({store}) => {
     return ({

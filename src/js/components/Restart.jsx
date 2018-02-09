@@ -74,10 +74,12 @@ const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, s
     setCharacter(character);
     setWinner(0);
     time = 0;
+    socket.emit(`setCharacter`, character);
+    socket.emit(`playing`, false);
   };
 
   return (
-    <button className='general_btn_layout' onClick={handleRestart}>begin opnieuw</button>
+    <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
   );
 };
 

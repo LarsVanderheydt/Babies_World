@@ -16,14 +16,19 @@
   <script>
     const $timer = document.getElementById(`timer`);
     let time = 0;
+    let isMobile = false;
+    const socket = io(`http://192.168.0.215:8000`);
 
     setInterval(() => {
       $timer.innerHTML = time;
       time ++;
     }, 1000);
 
-    const socket = io(`http://192.168.0.215:8000`);
     // const socket = io(`/`);
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+      isMobile = true;
+    }
   </script>
 </body>
 </html>

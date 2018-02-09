@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {string, object} from 'prop-types';
-import {inject, observer} from 'mobx-react';
 
 import Mohawk from './Mohawk';
 import Default from './Default';
@@ -46,12 +45,4 @@ Hair.propTypes = {
   character: object.isRequired
 };
 
-export default inject(
-  ({store}) => {
-    return ({
-      character: store.character
-    });
-  }
- )(
-   observer(Hair)
- );
+export default Hair;

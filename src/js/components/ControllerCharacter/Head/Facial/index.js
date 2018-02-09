@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {string, object} from 'prop-types';
-import {inject, observer} from 'mobx-react';
 
 import Goatie from './Goatie';
 import Pacifier from './Pacifier';
@@ -38,12 +37,4 @@ Facial.propTypes = {
 };
 
 
-export default inject(
-  ({store}) => {
-    return ({
-      character: store.character
-    });
-  }
- )(
-   observer(Facial)
- );
+export default Facial;

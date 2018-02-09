@@ -18,8 +18,8 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
 
   const onSubmit = e => {
     e.preventDefault();
-
-    setName($name.value);
+    const camelCase = $name.value.charAt(0).toUpperCase() + $name.value.slice(1);
+    setName(camelCase);
     if (time <= 10) {
       setWinner(1);
     } else {
@@ -39,6 +39,8 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
 
   const onFocus = () => {
     $svg.classList.add(`hide`);
+    $submit.classList.remove(`mobile_btn_pos`);
+    $submit.classList.add(`pc_btn_pos`);
   };
 
   const onBlur = () => {
@@ -62,7 +64,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
 
           <form onSubmit={onSubmit} className='vehicle_name_form'>
             <input type='text' ref={$el => $name = $el} className='vehicle_name_input' onChange={onChange} placeholder='voornaam' onFocus={onFocus} onBlur={onBlur} />
-            <input type='submit' value='bevestig' className='general_btn_layout btn_disabled' disabled='true' ref={$el => $submit = $el} />
+            <input type='submit' value='bevestig' className={isMobile ? `general_btn_layout btn_disabled mobile_btn_pos` : `general_btn_layout btn_disabled pc_btn_pos`} disabled='true' ref={$el => $submit = $el} />
           </form>
 
         </div>

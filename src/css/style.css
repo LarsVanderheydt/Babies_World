@@ -18,6 +18,26 @@ h1 { font-size: 3rem; }
 
 .hide { visibility: hidden; }
 
+.general_btn_layout {
+  padding: 1rem 3rem;
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  background-color: #901947;
+  border-radius: 3rem;
+  position: absolute;
+  align-self: center;
+  border: none;
+}
+
+.mobile_btn_pos {
+  bottom: calc(4% + -4rem);
+}
+
+.pc_btn_pos {
+  bottom: 4%;
+}
+
 .main_div {
   display: flex;
   flex-direction: column;
@@ -143,19 +163,6 @@ h1 { font-size: 3rem; }
   margin-left: 3rem;
   top: 4%;
   position: absolute;
-}
-
-.general_btn_layout {
-  padding: 1rem 3rem;
-  text-decoration: none;
-  font-size: 2rem;
-  color: white;
-  background-color: #901947;
-  border-radius: 3rem;
-  position: absolute;
-  bottom: 5%;
-  align-self: center;
-  border: none;
 }
 
 .win_lose_screen {

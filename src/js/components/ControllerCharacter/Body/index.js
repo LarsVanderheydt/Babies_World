@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {object} from 'prop-types';
-import {inject, observer} from 'mobx-react';
 
 import Superman from './Superman';
 import Tats from './Tats';
@@ -47,12 +46,4 @@ Body.propTypes = {
   character: object.isRequired
 };
 
-export default inject(
-  ({store}) => {
-    return ({
-      character: store.character
-    });
-  }
- )(
-   observer(Body)
- );
+export default Body;

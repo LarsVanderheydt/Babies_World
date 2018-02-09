@@ -11,7 +11,6 @@ const Partners = ({choosingPartner, setPartnerPage, backToInfo, infoPage, setPla
 
   const handleNextClick = () => {
     setPartnerPage(false);
-
     socket.emit(`setCharacter`, character);
   };
 
@@ -57,7 +56,7 @@ const Partners = ({choosingPartner, setPartnerPage, backToInfo, infoPage, setPla
                 })()
               }
             </h1>
-            <button className='general_btn_layout' onClick={handleNextClick}>verder</button>
+            <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handleNextClick}>verder</button>
           </div>
 
         </div>

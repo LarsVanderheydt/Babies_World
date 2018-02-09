@@ -79,9 +79,11 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
 
           </div>
 
-          {win ? <button className='general_btn_layout' onClick={handlePlay}>speel</button> : (
-            <Restart />
-          )}
+          {
+            win ? (
+              <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handlePlay}>speel</button>
+            ) : <Restart />
+          }
 
         </div>
 

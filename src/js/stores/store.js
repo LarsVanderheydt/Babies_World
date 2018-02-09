@@ -66,19 +66,19 @@ class Store {
     },
 
     legsColor: {
-      Default: ``,
-      Superman: `#C1272D`,
-      Classy: `#7F47DD`,
-      DaiperBoots: ``,
-      Daiper: ``,
-      Mermaid: ``
+      Default: `#534741`,
+      Superman: `#FF0000`,
+      Classy: `#333333`,
+      DaiperBoots: `#771a9d`,
+      Daiper: `#FF0000`,
+      Mermaid: `#00FFFF`
     },
 
     accessoireColor: {
       Balloon: `#C60505`,
       Nutella: `#42210B`,
       Cape: `#C1272D`,
-      Wings: ``
+      Wings: `#F7931E`
     },
 
     bodyTypeColor: {
@@ -93,6 +93,9 @@ class Store {
     accessoire: `Default`,
     partner: `Unicorn`
   }
+
+  @observable
+  place = ``;
 
   @observable
   choosingPartner = true;
@@ -126,6 +129,9 @@ class Store {
 
   @observable
   info = false;
+
+  @action
+  setPlace = place => this.place = place;
 
   @action
   setInfo = bool => this.info = bool;

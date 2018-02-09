@@ -18,22 +18,22 @@ const Legs = ({character}) => {
         (() => {
           switch (character.legs) {
           case `Default`:
-            return <Default />;
+            return <Default color={character.legsColor.Default} />;
 
           case `Superman`:
-            return <Superman />;
+            return <Superman color={character.legsColor.Superman} />;
 
           case `DaiperBoots`:
-            return <DaiperBoots color={character.bodyTypeColor.color} />;
+            return <DaiperBoots body={character.bodyTypeColor.color} color={character.legsColor.DaiperBoots} />;
 
           case `Classy`:
-            return <Classy />;
+            return <Classy color={character.legsColor.Classy} />;
 
           case `Daiper`:
-            return <Daiper color={character.bodyTypeColor.color} />;
+            return <Daiper body={character.bodyTypeColor.color} color={character.legsColor.Daiper} />;
 
           case `Mermaid`:
-            return <Mermaid color={character.bodyTypeColor.color} />;
+            return <Mermaid color={character.legsColor.Mermaid} />;
 
           }
         })()

@@ -10,15 +10,15 @@ import Previews from './Previews';
 import Colors from './Colors';
 import Name from '../Name';
 
-const Character = ({selectType, setType, previewTypes, place, chooseCharacter, setCharacterView}) => {
+const Character = ({selectType, setType, previewTypes, place, chooseCharacter, setCharacterView, setPlace}) => {
 
   const handleIconClick = e => {
-    console.log(place);
     selectType = e.currentTarget.id;
     setType(selectType);
   };
 
   const handleCharacterFinish = () => {
+    setPlace(place);
     setCharacterView(false);
   };
 
@@ -63,8 +63,8 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
           <div className='icons_div'>
             {
               previewTypes.map(icon => {
-                // return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
-                return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                // return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
               })
             }
           </div>
@@ -82,7 +82,8 @@ Character.propTypes = {
   previewTypes: object.isRequired,
   place: string.isRequired,
   chooseCharacter: bool.isRequired,
-  setCharacterView: func.isRequired
+  setCharacterView: func.isRequired,
+  setPlace: func.isRequired
 };
 
 export default inject(
@@ -93,7 +94,8 @@ export default inject(
       previewTypes: store.previewTypes,
       chooseCharacter: store.chooseCharacter,
       setCharacterView: store.setCharacterView,
-      character: store.character
+      character: store.character,
+      setPlace: store.setPlace
     });
   }
  )(

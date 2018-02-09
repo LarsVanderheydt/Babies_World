@@ -1,5 +1,5 @@
 import React from 'react';
-import {func} from 'prop-types';
+import {func, string} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 const character = {
@@ -26,7 +26,7 @@ const character = {
   partner: `Unicorn`
 };
 
-const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, setCharacter, setWinner}) => {
+const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, setCharacter, setWinner, place}) => {
 
   const handleRestart = () => {
     setPlay(false);
@@ -36,7 +36,7 @@ const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, s
     setCharacter(character);
     setWinner(0);
     time = 0;
-    socket.emit(`setCharacter`, character);
+    socket.emit(`setCharacter`, {character, place});
     socket.emit(`playing`, false);
   };
 
@@ -51,7 +51,8 @@ HandleRestart.propTypes = {
   setPartnerPage: func.isRequired,
   setCharacterView: func.isRequired,
   setCharacter: func.isRequired,
-  setWinner: func.isRequired
+  setWinner: func.isRequired,
+  place: string.isRequired
 };
 
 export default inject(
@@ -62,7 +63,8 @@ export default inject(
       setPartnerPage: store.setPartnerPage,
       setCharacterView: store.setCharacterView,
       setCharacter: store.setCharacter,
-      setWinner: store.setWinner
+      setWinner: store.setWinner,
+      place: store.place
     });
   }
  )(

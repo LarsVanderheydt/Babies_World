@@ -1,6 +1,7 @@
 import React from 'react';
+import {string} from 'prop-types';
 
-const Mermaid = () => {
+const Mermaid = ({color}) => {
   return (
     <g>
       <defs>
@@ -32,7 +33,7 @@ const Mermaid = () => {
       <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
           <g id='iPhone-8' transform='translate(-87.000000, -21.000000)'>
               <g id='Page-1' transform='translate(73.000000, 281.000000)'>
-                  <g id='Group-5' opacity='0.403645833' transform='translate(0.000000, 10.000000)' fill='#00FFFF'>
+                  <g id='Group-5' opacity='0.403645833' transform='translate(0.000000, 10.000000)' fill={color}>
                       <path d='M46.4151429,41.3848566 C52.8192857,48.144314 9.02142857,65.5021434 0,44.8677636 C0,44.8677636 25.2385714,19.0322597 46.4151429,41.3848566' id='Fill-1'></path>
                       <path d='M44.4805286,46.2075891 C37.6859571,52.5786357 20.2379571,9.00712403 40.9795286,0.0318914729 C40.9795286,0.0318914729 66.9492429,25.1404574 44.4805286,46.2075891' id='Fill-3'></path>
                   </g>
@@ -41,7 +42,7 @@ const Mermaid = () => {
                           <mask id='mask-299' fill='white'>
                               <use xlinkHref='#legs-mermaid-24'></use>
                           </mask>
-                          <use id='Clip-7' fill='#00FFFF' xlinkHref='#legs-mermaid-24'></use>
+                          <use id='Clip-7' fill={color} xlinkHref='#legs-mermaid-24'></use>
                           <path d='M60.9681349,4.94986184 C60.9681349,8.74934493 57.9184,11.8290889 54.15689,11.8290889 C50.3953799,11.8290889 47.345645,8.74934493 47.345645,4.94986184' id='Stroke-6' stroke='#0071BC' strokeWidth='0.992' strokeLinecap='round' mask='url(#mask-299)'></path>
                       </g>
                       <g id='Group-11'>
@@ -211,6 +212,10 @@ const Mermaid = () => {
       </g>
     </g>
   );
+};
+
+Mermaid.propTypes = {
+  color: string.isRequired
 };
 
 export default Mermaid;

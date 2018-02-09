@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ControllerCharacter from '../components/ControllerCharacter';
+import {string} from 'prop-types';
 
 class World extends Component {
   state = {
@@ -11,10 +12,11 @@ class World extends Component {
 
       const currentSocketIds = [];
       let {players} = this.state;
+      const {world} = this.props;
       players = [];
 
       for (const clientId in users) {
-        if (users[clientId].playing === true) {
+        if (users[clientId].playing === true && users[clientId].place === world) {
           currentSocketIds.push(clientId);
 
           players.push(users[clientId]);
@@ -37,14 +39,14 @@ class World extends Component {
     const {players} = this.state;
 
     return (
-      <div>
+      <div className='game_field'>
         {
           players.map(player => {
             return (
               <div key={player.id} style={{
                 position: `absolute`,
-                left: `${player.x}px`,
-                bottom: `${player.y}px`
+                left: `${player.x}%`,
+                bottom: `${player.y}%`
               }}>
                 <ControllerCharacter character={player.character} id={player.id} />
               </div>
@@ -55,5 +57,9 @@ class World extends Component {
     );
   }
 }
+
+World.propTypes = {
+  world: string.isRequired
+};
 
 export default World;

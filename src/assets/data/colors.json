@@ -55,47 +55,43 @@
     "Unicorn": {
       "primary": ["#93278F", "#50c134", "#4b8ddb", "#e86565"],
       "secondary": ["#842484", "#3c9028", "#2d62a2", "#b53b3b"],
-      "tertiary": ["#E39AE5", "##75e05b", "#328efa", "#f72f2f"]
+      "tertiary": ["#E39AE5", "#75e05b", "#328efa", "#f72f2f"]
     }
   },
 
-
-
-
-
   "Legs": {
     "Default": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#534741", "#69d5c8", "#dfb63c", "#ca4aff"]
     },
     "Classy": {
-      "primary": ["#7F47DD", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#333333", "#cd6624", "#38d1db", "#7cdfc1"]
     },
     "DaiperBoots": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#771a9d", "#f9df5a", "#540888", "#1b410b"]
     },
     "Daiper": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#FF0000", "#143c0a", "#0f0a34", "#105b52"]
     },
     "Mermaid": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#00FFFF", "#d7ff52", "#ffbf52", "#fb54d6"]
     },
     "Superman": {
-      "primary": ["#C1272D", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#FF0000", "#258160", "#0b0c46", "#1a9d72"]
     }
   },
 
   "Accessoire": {
     "Nutella": {
-      "primary": ["#42210B", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#42210B", "#2e90a6", "#88f049", "#e09a5a"]
     },
     "Cape": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#C1272D", "#dcec5c", "#f18456", "#501a9d"]
     },
     "Balloon": {
-      "primary": ["#C60505", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#C60505", "#006ea4", "#59bb92", "#e9d775"]
     },
     "Wings": {
-      "primary": ["#ffffff", "#46a62e", "#1f8990", "#771a9d"]
+      "primary": ["#F7931E", "#69d24f", "#7b67df", "#6de2d0"]
     }
   }
 }

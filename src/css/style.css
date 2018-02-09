@@ -2,11 +2,11 @@
 @import 'vars';
 
 html {
-  background-color: rgba(255, 50, 137, .16);
   color: #901947;
 }
 
 body {
+  background-color: rgba(255, 50, 137, .16);
   font-family: 'Helvetica neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -17,6 +17,11 @@ h1 { font-size: 3rem; }
 .btn_disabled { opacity: .5; }
 
 .hide { visibility: hidden; }
+
+.game_field {
+  width: 100vw;
+  height: 100vh;
+}
 
 .general_btn_layout {
   padding: 1rem 3rem;
@@ -34,8 +39,10 @@ h1 { font-size: 3rem; }
   bottom: calc(4% + -4rem);
 }
 
-.pc_btn_pos {
-  bottom: 4%;
+.pc_btn_pos { bottom: 4%; }
+
+.won_drink {
+  background-color: #f7e31b;
 }
 
 .main_div {
@@ -45,7 +52,10 @@ h1 { font-size: 3rem; }
   margin-top: 2vh;
 }
 
-.svg_character { height: 45vh; }
+.svg_character {
+  height: 45vh;
+  width: 39vw;
+}
 
 .svg_character_controller { height: 22vh; }
 
@@ -286,6 +296,28 @@ h1 { font-size: 3rem; }
   justify-content: space-between;
 
   & h1 { font-size: 3.5rem; }
+}
+
+.wonDrink_content_div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 95vh;
+  padding-top: 10vh;
+  width: 80vw;
+  align-items: center;
+  margin: 0 auto;
+
+  & .wonDrink_info {
+    line-height: 3.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  & .wonDrink_instructions {
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
 }
 
 @media (width >= 530px) {

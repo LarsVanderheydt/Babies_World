@@ -14,14 +14,14 @@ const server = new Hapi.Server({
 
 const io = require(`socket.io`)(server.listener);
 const users = {};
-const playing = [];
 
 io.on(`connection`, socket => {
 
   users[socket.id] = {
     id: socket.id,
-    x: 10,
-    y: 10,
+    x: 1,
+    y: 1,
+    place: ``,
     playing: false,
     character: {}
   };
@@ -36,11 +36,15 @@ io.on(`connection`, socket => {
 
   socket.on(`playing`, bool => {
     users[socket.id].playing = bool;
-    playing.push(users[socket.id].playing);
+    if (bool === false) {
+      users[socket.id].x = 1;
+      users[socket.id].y = 1;
+    }
   });
 
-  socket.on(`setCharacter`, character => {
-    users[socket.id].character = character;
+  socket.on(`setCharacter`, data => {
+    users[socket.id].character = data.character;
+    users[socket.id].place = data.place;
   });
 
   socket.on(`disconnect`, () => {

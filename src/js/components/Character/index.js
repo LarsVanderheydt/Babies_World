@@ -11,6 +11,15 @@ import Colors from './Colors';
 import Name from '../Name';
 
 const Character = ({selectType, setType, previewTypes, place, chooseCharacter, setCharacterView, setPlace}) => {
+  document.body.style.backgroundColor = `#FFDFEC`;
+
+  let $progress;
+
+  setInterval(() => {
+    if ($progress) {
+      $progress.value = time;
+    }
+  }, 1000);
 
   const handleIconClick = e => {
     selectType = e.currentTarget.id;
@@ -25,6 +34,7 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
   return (
       chooseCharacter ? (
         <div className='main_div'>
+          <progress value='' max='60' className='pgrogress_bar' ref={$el => $progress = $el}></progress>
 
           <svg className='character_finish_btn' width='43px' height='43px' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleCharacterFinish}>
               <defs>
@@ -63,8 +73,8 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
           <div className='icons_div'>
             {
               previewTypes.map(icon => {
-                // return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
-                return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                return <img key={icon.type} src={`./assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
+                // return <img key={icon.type} src={`https://babiesworld.herokuapp.com/assets/img/Icons/${icon.type}.png`} width='35' height='35' onClick={handleIconClick} id={icon.type} className={selectType === icon.type ? `currentIcon` : `icon`} alt={icon.type} />;
               })
             }
           </div>

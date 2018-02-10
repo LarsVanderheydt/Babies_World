@@ -5,11 +5,11 @@ import {inject, observer} from 'mobx-react';
 import Controller from './Controller';
 import SvgPartner from './Partner';
 
-const Partners = ({choosingPartner, setPartnerPage, backToInfo, setPlay, character, partner, place}) => {
+const Partners = ({choosingPartner, setPartnerPage, backToInfo, setPlay, character, partner, place, name}) => {
 
   const handleNextClick = () => {
     setPartnerPage(false);
-    socket.emit(`setCharacter`, {character, place});
+    socket.emit(`setCharacter`, {character, place, name});
   };
 
   const handleBackClick = () => {
@@ -68,7 +68,8 @@ Partners.propTypes = {
   setPlay: func.isRequired,
   character: object.isRequired,
   partner: number.isRequired,
-  place: string.isRequired
+  place: string.isRequired,
+  name: string.isRequired
 };
 
 // export default Partners;
@@ -84,7 +85,8 @@ export default inject(
       setPlay: store.setPlay,
       character: store.character,
       partner: store.partner,
-      place: store.place
+      place: store.place,
+      name: store.name
     });
   }
 )(

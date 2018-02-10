@@ -1,17 +1,17 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import {object} from 'prop-types';
-// import {inject, observer} from 'mobx-react';
 
 import Head from './Head';
 import Body from './Body';
 import Legs from './Legs';
 import Accessoires from './Accessoires';
+import Partner from './Partner';
 
 const ControllerCharacter = ({character}) => {
 
   return (
-    <svg width='130px' height='130px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
+    <svg width='180px' height='130px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
       <defs>
           <polygon id='legs-evil-1' points='0.202469892 0.0946553588 31.880986 0.0946553588 31.880986 23.6522455 0.202469892 23.6522455'></polygon>
           <polygon id='legs-evil-2' points='0.0499817204 0.0946553588 31.7284978 0.0946553588 31.7284978 23.6522455 0.0499817204 23.6522455'></polygon>
@@ -29,31 +29,35 @@ const ControllerCharacter = ({character}) => {
           <path d='M0.9552,1.61 C0.9552,2.4975 3.204,3.22 5.9784,3.22 C8.748,3.22 10.9968,2.4975 10.9968,1.61 C10.9968,0.72 8.748,0 5.9784,0 C3.204,0 0.9552,0.72 0.9552,1.61 Z' id='eyes-wings-4'></path>
       </defs>
 
-      {character.accessoire === `Cape` ? <Accessoires character={character} /> : ``}
-      {character.accessoire === `Wings` ? <Accessoires character={character} /> : ``}
+      <Partner partner={character.partner} />
 
-      {
-        character.bodyType === `KaaDrie` || character.bodyType === `Bride` ? (
-          <g>
-            <Legs character={character} />
-            <Body character={character} />
-          </g>
-        ) : (
-          <g>
-            <Body character={character} />
-            <Legs character={character} />
-          </g>
-        )
-      }
+      <g transform='scale(0.5 0.5) translate(50, 0)'>
+        {character.accessoire === `Cape` ? <Accessoires character={character} /> : ``}
+        {character.accessoire === `Wings` ? <Accessoires character={character} /> : ``}
 
-      <Head character={character} />
+        {
+          character.bodyType === `KaaDrie` || character.bodyType === `Bride` ? (
+            <g>
+              <Legs character={character} />
+              <Body character={character} />
+            </g>
+          ) : (
+            <g>
+              <Body character={character} />
+              <Legs character={character} />
+            </g>
+          )
+        }
 
-      {
-        character.accessoire === `Default` ||
-        character.accessoire === `Cape` ||
-        character.accessoire === `Wings`
-        ? `` : <Accessoires character={character} />
-      }
+        <Head character={character} />
+
+        {
+          character.accessoire === `Default` ||
+          character.accessoire === `Cape` ||
+          character.accessoire === `Wings`
+          ? `` : <Accessoires character={character} />
+        }
+      </g>
 
     </svg>
   );

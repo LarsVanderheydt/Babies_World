@@ -8,6 +8,8 @@ import SvgCharacter from './Character/SvgCharacter';
 import Win from './Win';
 
 const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner, setName}) => {
+  document.body.style.backgroundColor = `white`;
+
   let $name;
   let $submit;
   let $svg;
@@ -20,7 +22,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
     e.preventDefault();
     const camelCase = $name.value.charAt(0).toUpperCase() + $name.value.slice(1);
     setName(camelCase);
-    if (time <= 10) {
+    if (time <= 4) {
       setWinner(1);
     } else {
       setWinner(2);

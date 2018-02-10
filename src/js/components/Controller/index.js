@@ -26,7 +26,7 @@ class Controller extends Component {
         url: `https://babiesworld.herokuapp.com/index.html?place=home`
       }).then(() => {
         const random = Math.floor(Math.random() * 100);
-        if (random >= 0 && random <= 100) {
+        if (random >= 0 && random <= 15) {
           this.setState({win: 1});
         } else {
           this.setState({win: 2});

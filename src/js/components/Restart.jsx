@@ -44,7 +44,7 @@ const HandleRestart = ({setPlay, backToInfo, setPartnerPage, setCharacterView, s
     page === `controller` ? (
       <button className={isMobile ? `controller_restart_btn mobile_btn_pos` : `controller_restart_btn pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
     ) : (
-      <button className={isMobile ? `general_btn_layout mobile_btn_pos` : `general_btn_layout pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
+      <button className={isMobile ? `win_lose_btn mobile_btn_pos` : `win_lose_btn pc_btn_pos`} onClick={handleRestart}>begin opnieuw</button>
     )
   );
 };

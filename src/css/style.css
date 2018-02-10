@@ -7,8 +7,7 @@ html {
 }
 
 body {
-  /* background-color: rgba(255, 50, 137, .16); */
-  background-color: rgb(238, 238, 238);
+  background-color: white;
   font-family: 'Helvetica neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.5rem;
@@ -26,7 +25,6 @@ h1 { font-size: 3rem; }
 
   & button {
     font-size: 2.5rem;
-    /* text-transform: uppercase; */
   }
 }
 
@@ -35,8 +33,62 @@ h1 { font-size: 3rem; }
   height: 100vh;
 }
 
-.controller_restart_btn {
-  font-size: 2rem;
+.highscores {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+
+  & h1 {
+    padding: 1.3rem 2rem;
+    border-radius: 20rem;
+    font-size: 2.3rem;
+    background-color: white;
+    text-align: center;
+    z-index: -997;
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .12);
+  }
+
+  & ol {
+    height: 19rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    margin-top: -3rem;
+    z-index: -999;
+    box-shadow: 0 .1rem .3rem rgba(0, 0, 0, .12);
+  }
+}
+
+.highscore_list_item {
+  display: flex;
+  justify-content: space-around;
+
+  & .highscore_name {
+    width: 10rem;
+  }
+}
+
+.controller_restart_btn { font-size: 2rem; }
+
+.pgrogress_bar {
+  position: absolute;
+  background-color: black;
+  left: 4%;
+  width: 7rem;
+  height: .8rem;
+  opacity: .5;
+}
+
+.pgrogress_bar[value]::-webkit-progress-bar {
+  background-color: #fee0ec;
+}
+
+.pgrogress_bar[value]::-webkit-progress-value {
+  background-color: rgb(155, 27, 81);
 }
 
 .general_btn_layout {
@@ -51,9 +103,23 @@ h1 { font-size: 3rem; }
   border: none;
 }
 
+.win_lose_btn {
+  padding: 1rem 3rem;
+  text-decoration: none;
+  font-size: 2rem;
+  color: white;
+  background-color: #901947;
+  border-radius: 3rem;
+  align-self: center;
+  border: none;
+}
+
 .mobile_btn_pos { bottom: calc(4% + -4rem); }
 
-.pc_btn_pos { bottom: 4%; }
+.pc_btn_pos {
+  bottom: 4%;
+  border: none;
+}
 
 .won_drink { background-color: #f7e31b; }
 
@@ -192,7 +258,7 @@ h1 { font-size: 3rem; }
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .win_lose_text_div {
@@ -284,9 +350,14 @@ h1 { font-size: 3rem; }
 
 .win_lose_info {
   cursor: pointer;
-  position: absolute;
-  right: 3rem;
-  top: 2rem;
+}
+
+.win_lose_btns_div {
+  width: 33rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .first_info_content_div {

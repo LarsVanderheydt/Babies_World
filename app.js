@@ -23,7 +23,9 @@ io.on(`connection`, socket => {
     y: 1,
     place: ``,
     playing: false,
-    character: {}
+    character: {},
+    points: 0,
+    name: ``
   };
 
   socket.on(`update`, data => {
@@ -34,6 +36,13 @@ io.on(`connection`, socket => {
     users[socket.id].y = data.y;
   });
 
+  socket.on(`point`, id => {
+    if (!id || !users[socket.id]) {
+      return;
+    }
+    users[id].points += 1;
+  });
+
   socket.on(`playing`, bool => {
     users[socket.id].playing = bool;
     if (bool === false) {
@@ -42,9 +51,10 @@ io.on(`connection`, socket => {
     }
   });
 
-  socket.on(`setCharacter`, data => {
-    users[socket.id].character = data.character;
-    users[socket.id].place = data.place;
+  socket.on(`setCharacter`, ({character, place, name}) => {
+    users[socket.id].character = character;
+    users[socket.id].place = place;
+    users[socket.id].name = name;
   });
 
   socket.on(`disconnect`, () => {

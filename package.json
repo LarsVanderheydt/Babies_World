@@ -60,6 +60,9 @@
     "inert": "^5.1.0",
     "nipplejs": "^0.6.8",
     "nodemon": "^1.14.12",
+    "react-confetti": "^2.0.2",
+    "react-sizeme": "^2.3.6",
+    "shortid": "^2.2.8",
     "socket.io": "^2.0.4"
   }
 }

@@ -1,6 +1,8 @@
 import React from 'react';
 import {string, bool, func} from 'prop-types';
 import {inject, observer} from 'mobx-react';
+import Confetti from 'react-confetti';
+
 import SvgCharacter from './Character/SvgCharacter';
 
 import Partners from './Partners';
@@ -19,13 +21,51 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
     setInfo(true);
   };
 
+
   return (
     !info ? (
       !play ? (
         <div className='win_lose_screen'>
 
-          <div className='win_lose_info'>
-            <svg width='43px' height='43px' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={onInfoClick}>
+          {
+            win ? (
+              <div style={{zIndex: `-999`, position: `absolute`, top: 0, left: 0, width: `100%`, height: `100%`}}>
+                <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
+              </div>
+            ) : ``
+          }
+
+          <SvgCharacter />
+
+          <h1 className='win_lose_greeting bold'>{win ? `Welkom ${name}` : `Het spijt ons`}</h1>
+
+          <div className='win_lose_text_div'>
+            {
+              win ? (
+                <div>
+                  <p>{name} is <span className='bold'>zonder problemen</span> op de digitale wereld gebracht,</p>
+                  <p>maar niet iedereen heeft zoveel succes.</p>
+                  <p>Vanaf 30 jaar vermindert de kans op zwangerschap,</p>
+                  <p><span className='bold'>dus wacht niet te lang.</span> <span className='win_lose_info_link'>Leer meer hierover.</span></p>
+                </div>
+              ) : (
+                <div>
+                  <p>{name} is niet op de wereld gezet… Je deed er iets te lang over.</p>
+                  <p>Gelukkig is dit een spel en krijg je hier een <span className='bold'>tweede kans.</span></p>
+                  <p>In het echte leven is dit niet zo!</p>
+                  <p><span className='bold'>Vanaf 30 jaar verkleint de kans op zwangerschap.</span><span className='win_lose_info_link'>Leer meer.</span></p>
+                </div>
+              )
+            }
+
+            <p className='win_lose_second_par bold'>
+              {win ? `Deel je baby en maak kans op een gratis drankje.` : `Probeer opnieuw en maak kans op een gratis drankje.`}
+            </p>
+
+          </div>
+
+          <div className='win_lose_btns_div'>
+            <svg className='win_lose_info' width='43px' height='43px' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={onInfoClick}>
                 <defs>
                     <circle id='path-1' cx='19.5' cy='19.5' r='19.5'></circle>
                     <filter x='-9.0%' y='-6.4%' width='117.9%' height='117.9%' filterUnits='objectBoundingBox' id='filter-2'>
@@ -48,41 +88,12 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
                     </g>
                 </g>
             </svg>
-          </div>
 
-          <SvgCharacter />
-
-          <h1 className='win_lose_greeting bold'>{win ? `Welkom ${name}` : `Het spijt ons`}</h1>
-
-          <div className='win_lose_text_div'>
-            {
-              win ? (
-                <div>
-                  <p><span className='bold'>{name}</span> is zonder problemen op de <span>digitale wereld</span> gebracht,</p>
-                  <p>maar niet iedereen heeft zoveel <span className='bold'>succes.</span></p>
-                  <p>Vanaf <span className='bold'>30 jaar</span> vermindert de kans op <span className='bold'>zwangerschap</span>,</p>
-                  <p>dus wacht niet te lang. <span className='bold'>Leer meer hierover.</span></p>
-                </div>
-              ) : (
-                <div>
-                  <p><span className='bold'>{name}</span> is niet op de wereld gezet… Je deed er iets <span className='bold'>te lang</span> over.</p>
-                  <p><span className='bold'>Gelukkig</span> is dit een spel en krijg je hier een <span className='bold'>tweede kans.</span></p>
-                  <p>In het echte leven is dit niet zo!</p>
-                  <p>Vanaf <span className='bold'>30 jaar</span> verkleint de kans op zwangerschap. <span className='win_lose_info_link'>Leer meer.</span></p>
-                </div>
-              )
-            }
-
-            <p className='win_lose_second_par bold'>
-              {win ? `Deel je baby en maak kans op een gratis drankje.` : `Probeer opnieuw en maak kans op een gratis drankje.`}
-            </p>
-
-          </div>
 
           {
             win ? (
-              <div className='play_btn_div'>
-                <button className={isMobile ? `mobile_btn_pos play_btn` : `pc_btn_pos play_btn`} onClick={handlePlay}>speel</button>
+              <div className='play_btn_div' onClick={handlePlay}>
+                <button className={isMobile ? `mobile_btn_pos play_btn` : `pc_btn_pos play_btn`}>speel</button>
 
                 <svg width='12px' height='19px' viewBox='0 0 12 19' version='1.1' xmlns='http://www.w3.org/2000/svg'>
                     <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
@@ -98,8 +109,9 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
               </div>
             ) : <Restart page='win' />
           }
-
         </div>
+
+      </div>
 
       ) : <Partners />
     ) : <Info />

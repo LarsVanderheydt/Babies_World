@@ -43,7 +43,7 @@ class Nipple extends Component {
     const jStick = nipplejs.create({
       zone: $nipple,
       mode: `static`,
-      position: {left: `50%`, top: `50%`},
+      position: {left: `50%`, top: `60%`},
       color: `red`
     });
 

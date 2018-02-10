@@ -15,7 +15,7 @@ const WonDrink = ({setWin}) => {
       <h1>Proficiat!!</h1>
 
       <div onClick={handleCollect} >
-        <SvgCharacter />
+        <SvgCharacter page='wonDrink' />
       </div>
 
       <p className='wonDrink_info'>Bedankt om je baby te delen. Hierdoor heb je zonet een gratis drankje (twv max. &euro;3) gewonnen.</p>

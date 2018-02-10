@@ -21,7 +21,6 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
     setInfo(true);
   };
 
-
   return (
     !info ? (
       !play ? (
@@ -35,9 +34,9 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
             ) : ``
           }
 
-          <SvgCharacter />
+          <SvgCharacter page='' />
 
-          <h1 className='win_lose_greeting bold'>{win ? `Welkom ${name}` : `Het spijt ons`}</h1>
+          <h1 className='win_lose_greeting'>{win ? `Welkom ${name}` : `Het spijt ons`}</h1>
 
           <div className='win_lose_text_div'>
             {
@@ -97,7 +96,7 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
 
                 <svg width='12px' height='19px' viewBox='0 0 12 19' version='1.1' xmlns='http://www.w3.org/2000/svg'>
                     <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
-                        <g id='iPhone-8-Copy-3' transform='translate(-19.000000, -97.000000)' fill='#373737'>
+                        <g id='iPhone-8-Copy-3' transform='translate(-19.000000, -97.000000)' fill='#9B1B51'>
                             <g id='Icons/iMessage/Back' transform='translate(24.884615, 106.615385) rotate(-270.000000) translate(-24.884615, -106.615385) translate(15.884615, 101.115385)'>
                                 <g id='Back-button'>
                                     <polygon transform='translate(8.884615, 5.288462) rotate(90.000000) translate(-8.884615, -5.288462) ' points='3.59615385 5.28846154 12.4807692 -3.59615385 14.1730769 -1.90384615 6.98076923 5.28846154 14.1730769 12.4807692 12.4807692 14.1730769'></polygon>

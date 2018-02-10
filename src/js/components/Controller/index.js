@@ -60,6 +60,14 @@ class Controller extends Component {
               </g>
             </svg>
 
+            <p>
+              Bedankt om mee te spelen. Je kan je
+              <span className='bold'> karakter besturen </span>
+              op het grote scherm vooraan.
+              <span className='bold'> Deel </span>
+              je karakter en maak kans op een gratis drankje of een 3D versie van je karakter.
+            </p>
+
             <Nipple />
 
           </div>

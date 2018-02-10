@@ -17,7 +17,9 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
 
   setInterval(() => {
     if ($progress) {
-      $progress.value = time;
+      let decrement = 60;
+      decrement -= time;
+      $progress.value = decrement;
     }
   }, 1000);
 
@@ -34,8 +36,6 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
   return (
       chooseCharacter ? (
         <div className='main_div'>
-          <progress value='' max='60' className='pgrogress_bar' ref={$el => $progress = $el}></progress>
-
           <svg className='character_finish_btn' width='43px' height='43px' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={handleCharacterFinish}>
               <defs>
                   <circle id='path-1' cx='19.5' cy='19.5' r='19.5'></circle>
@@ -58,7 +58,7 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
               </g>
           </svg>
 
-          <SvgCharacter />
+          <SvgCharacter page='' />
 
 
           <div className='color_div'>
@@ -69,6 +69,8 @@ const Character = ({selectType, setType, previewTypes, place, chooseCharacter, s
               )
             }
           </div>
+
+          <progress value='100' max='60' className='progress_bar' ref={$el => $progress = $el}></progress>
 
           <div className='icons_div'>
             {

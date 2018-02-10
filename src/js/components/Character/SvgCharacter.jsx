@@ -1,5 +1,5 @@
 import React from 'react';
-import {object} from 'prop-types';
+import {object, string} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 
 import Head from './Head';
@@ -7,7 +7,7 @@ import Body from './Body';
 import Legs from './Legs';
 import Accessoires from './Accessoires';
 
-const SvgCharacter = ({character}) => {
+const SvgCharacter = ({character, page}) => {
 
   return (
     <svg width='100vw' height='330px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character'>
@@ -30,7 +30,7 @@ const SvgCharacter = ({character}) => {
           <polygon id='accessoires-wings-2' points='0.442007011 0.0567846401 104.800596 0.0567846401 104.800596 104.907216 0.442007011 104.907216'></polygon>
       </defs>
       <ellipse className='Pink-oval' cx='100' cy='320' rx='87.5' ry='10' fill='#9B1B51'></ellipse>
-      <circle id='Pink-oval' cx='100' cy='142.5' r='105.5' fill='#9B1B51'></circle>
+      <circle id='Pink-oval' cx='100' cy='142.5' r='105.5' fill={page === `wonDrink` ? `#F3E219` : `#9B1B51`}></circle>
 
       {character.accessoire === `Cape` ? <Accessoires /> : ``}
       {character.accessoire === `Wings` ? <Accessoires /> : ``}
@@ -63,7 +63,8 @@ const SvgCharacter = ({character}) => {
 };
 
 SvgCharacter.propTypes = {
-  character: object.isRequired
+  character: object.isRequired,
+  page: string.isRequired
 };
 
 export default inject(

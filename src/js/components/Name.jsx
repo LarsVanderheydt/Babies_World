@@ -22,7 +22,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
     e.preventDefault();
     const camelCase = $name.value.charAt(0).toUpperCase() + $name.value.slice(1);
     setName(camelCase);
-    if (time <= 4) {
+    if (time <= 60) {
       setWinner(1);
     } else {
       setWinner(2);
@@ -61,7 +61,7 @@ const Name = ({chooseName, setCharacterView, chooseCharacter, winner, setWinner,
           {chooseName ? <h1 className='vehicles_title'>hoe heet de baby?</h1> : ``}
 
           <div className='partner_div_height' ref={$el => $svg = $el}>
-            <SvgCharacter />
+            <SvgCharacter page='' />
           </div>
 
           <form onSubmit={onSubmit} className='vehicle_name_form'>

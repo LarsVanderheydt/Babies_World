@@ -8,9 +8,9 @@ html {
 
 body {
   background-color: white;
-  font-family: 'Helvetica neue', Helvetica, Arial, sans-serif;
   font-size: 1.6rem;
   line-height: 2.5rem;
+  font-family: SF;
 }
 
 h1 { font-size: 3rem; }
@@ -25,6 +25,7 @@ h1 { font-size: 3rem; }
 
   & button {
     font-size: 2.5rem;
+    color: #901947;
   }
 }
 
@@ -72,23 +73,33 @@ h1 { font-size: 3rem; }
   }
 }
 
-.controller_restart_btn { font-size: 2rem; }
-
-.pgrogress_bar {
-  position: absolute;
-  background-color: black;
-  left: 4%;
-  width: 7rem;
-  height: .8rem;
-  opacity: .5;
+.controller_restart_btn {
+  background-color: white;
+  color: #901947;
+  font-size: 2rem;
+  width: 15rem;
+  border-bottom: .2rem solid;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  margin: 0 auto;
 }
 
-.pgrogress_bar[value]::-webkit-progress-bar {
+.progress_bar {
+  left: 4%;
+  width: 93vw;
+  height: .6rem;
+  margin-bottom: .5rem;
+  background-color: white;
+}
+
+.progress_bar[value]::-webkit-progress-bar {
   background-color: #fee0ec;
 }
 
-.pgrogress_bar[value]::-webkit-progress-value {
-  background-color: rgb(155, 27, 81);
+.progress_bar[value]::-webkit-progress-value {
+  background-color: white;
+  border-radius: 10rem;
 }
 
 .general_btn_layout {
@@ -127,7 +138,6 @@ h1 { font-size: 3rem; }
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 2vh;
 }
 
 .svg_character {
@@ -290,7 +300,6 @@ h1 { font-size: 3rem; }
 }
 
 .vehicle_name_input {
-  font-weight: 100;
   margin-top: -10rem;
   margin-bottom: 17rem;
   text-decoration: none;
@@ -299,6 +308,8 @@ h1 { font-size: 3rem; }
   width: 20rem;
   font-size: 3rem;
   border-bottom: .2rem solid #9b9b9b;
+  font-family: SF;
+  font-weight: lighter;
 
   & ::placeholder { color: #9b9b9b; }
 }
@@ -321,9 +332,15 @@ h1 { font-size: 3rem; }
   margin-top: 5vh;
 
   & .controller_top_buttons {
-    width: 80vw;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
+
+    & p {
+      width: 75vw;
+      margin: 0 auto;
+      margin-top: 10vh;
+    }
   }
 }
 
@@ -369,6 +386,7 @@ h1 { font-size: 3rem; }
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 1rem;
 }
 
 .first_info_title_div {

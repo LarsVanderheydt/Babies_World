@@ -1,11 +1,9 @@
 import React from 'react';
-//import {} from 'prop-types'
-//import {inject, observer} from 'mobx-react'
 
 const Unicorn = () => {
 
   return (
-    <g id='Unicorn' transform='translate(-90.000000, -190.000000)'>
+    <g id='Unicorn' transform='translate(-110.000000, -190.000000)'>
 
         <g id='Page-1' transform='translate(32.000000, 228.000000)'>
             <path d='M64.0447618,122.343207 C40.0984421,118.757888 35.304733,165.016773 0,145.708439 C32.1572513,176.183393 77.9833929,150.737936 73.7231039,135.525585 C67.9145832,114.785256 64.0447618,122.343207 64.0447618,122.343207' id='Fill-1' fill='#F4B043'></path>
@@ -38,16 +36,4 @@ const Unicorn = () => {
   );
 };
 
-//Unicorn.propTypes = {
-//  : .isRequired
-//};
-
 export default Unicorn;
-
-/*
-export default inject(
-
- )(
-   observer(Unicorn)
- );
- */

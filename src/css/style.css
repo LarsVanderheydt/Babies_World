@@ -132,7 +132,6 @@ h1 { font-size: 3rem; }
 
 .pc_btn_pos {
   bottom: 4%;
-  border: none;
 }
 
 .won_drink { background-color: #f7e31b; }
@@ -145,7 +144,7 @@ h1 { font-size: 3rem; }
 
 .svg_character {
   height: 45vh;
-  width: 50vw;
+  width: 70vw;
 }
 
 .svg_character_controller { height: 22vh; }
@@ -437,16 +436,20 @@ h1 { font-size: 3rem; }
   }
 }
 
+@media (width >= 462px) {
+
+  .first_info_title_div h1 { font-size: 4rem; }
+
+  .skinTone_div { width: 21vw; }
+
+  .win_lose_btns_div { width: 40rem; }
+}
+
 @media (width >= 530px) {
 
   .first_info_paragraph_div { width: 37rem; }
 
   .win_lose_text_div { width: 40rem; }
-}
-
-@media (width >= 462px) {
-
-  .skinTone_div { width: 21vw; }
 }
 
 @media (width >= 600px) {

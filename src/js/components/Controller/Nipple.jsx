@@ -3,7 +3,7 @@ import nipplejs from 'nipplejs';
 let $nipple;
 const move = {
   angle: 0,
-  speed: .1,
+  speed: .15,
   move: false
 };
 

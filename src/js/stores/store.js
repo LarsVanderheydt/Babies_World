@@ -140,6 +140,8 @@ class Store {
   setPartner = partner => {
     if (partner >=  3) {
       this.partner = 0;
+    } else if (partner < 0) {
+      this.partner = 2;
     } else {
       this.partner = partner;
     }

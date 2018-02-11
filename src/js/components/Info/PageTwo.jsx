@@ -21,7 +21,7 @@ const PageTwo = () => {
       <svg width='247px' height='238px' viewBox='0 0 247 238' version='1.1' xmlns='http://www.w3.org/2000/svg'>
           <g id='Page-1' stroke='none' strokeWidth='1' fill='none' fillRule='evenodd'>
               <g id='iPhone-8-Copy-8' transform='translate(-42.000000, -411.000000)'>
-                  <g id='Icons/iMessage/Back' opacity='0.5' transform='translate(187.500000, 645.000000) rotate(-180.000000) translate(-187.500000, -645.000000) translate(181.000000, 641.000000)' fill='#858E98'>
+                  <g id='Icons/iMessage/Back' opacity='0.5' transform='translate(187.500000, 645.000000) rotate(-180.000000) translate(-187.500000, -645.000000) translate(200.000000, 641.000000)' fill='#858E98'>
                       <g id='Back-button'>
                           <polygon transform='translate(6.500000, 3.846154) rotate(90.000000) translate(-6.500000, -3.846154) ' points='2.63095238 3.84615385 9.13095238 -2.61538462 10.3690476 -1.38461538 5.10714286 3.84615385 10.3690476 9.07692308 9.13095238 10.3076923'></polygon>
                       </g>

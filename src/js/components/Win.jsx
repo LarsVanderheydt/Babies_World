@@ -21,6 +21,11 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
     setInfo(true);
   };
 
+  const body = document.body,
+    html = document.documentElement;
+  const height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+  const width = Math.max(body.scrollWidth, body.offsetWidth, html.clientWidth, html.scrollWidth, html.offsetWidth);
+
   return (
     !info ? (
       !play ? (
@@ -28,8 +33,8 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
 
           {
             win ? (
-              <div style={{zIndex: `-999`, position: `absolute`, top: 0, left: 0, width: `100%`, height: `100%`}}>
-                <Confetti width={window.innerWidth} height={window.innerHeight} recycle={false} />
+              <div style={{zIndex: `-999`, position: `absolute`, top: 0, left: 0, width: `100%`, height: `100%`, overflow: `hidden`}}>
+                <Confetti width={width} height={height * 2} recycle={false} />
               </div>
             ) : ``
           }
@@ -63,7 +68,7 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
 
           </div>
 
-          <div className='win_lose_btns_div'>
+          <div className={win ? `win_lose_btns_div` : `win_lose_btns_div win_lose_btn_center`}>
             <svg className='win_lose_info' width='43px' height='43px' viewBox='0 0 43 43' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={onInfoClick}>
                 <defs>
                     <circle id='path-1' cx='19.5' cy='19.5' r='19.5'></circle>
@@ -80,7 +85,7 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
                                 <use fill='black' fillOpacity='1' filter='url(#filter-2)' xlinkHref='#path-1'></use>
                                 <use fill='#9B1B51' fillRule='evenodd' xlinkHref='#path-1'></use>
                             </g>
-                            <text id='i' fontFamily='AmericanTypewriter-Bold, American Typewriter' fontSize='29' fontWeight='bold' letterSpacing='-0.223076925' fill='#FFDFEC'>
+                            <text id='i' fontFamily='AmericanTypewriter-Bold, American Typewriter' fontSize='29' fontWeight='bold' letterSpacing='-0.223076925' fill='rgb(255, 255, 255)'>
                                 <tspan x='15' y='30'>i</tspan>
                             </text>
                         </g>

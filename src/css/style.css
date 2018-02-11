@@ -24,6 +24,8 @@ h1 { font-size: 3rem; }
 .play_btn_div {
 
   & button {
+    background: none;
+    border: none;
     font-size: 2.5rem;
     color: #901947;
   }
@@ -123,6 +125,7 @@ h1 { font-size: 3rem; }
   border-radius: 3rem;
   align-self: center;
   border: none;
+  bottom: calc(4% + -1.5rem);
 }
 
 .mobile_btn_pos { bottom: calc(4% + -4rem); }
@@ -333,13 +336,18 @@ h1 { font-size: 3rem; }
 
   & .controller_top_buttons {
     width: 100vw;
-    display: flex;
-    justify-content: space-between;
 
-    & p {
-      width: 75vw;
-      margin: 0 auto;
-      margin-top: 10vh;
+    & div {
+      display: flex;
+      flex-direction: column;
+      margin-top: 7vh;
+
+      & p {
+        width: 75vw;
+        margin: 0 auto;
+        margin-top: 3vh;
+        text-align: center;
+      }
     }
   }
 }
@@ -370,11 +378,19 @@ h1 { font-size: 3rem; }
 }
 
 .win_lose_btns_div {
-  width: 33rem;
+  width: 90vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+}
+
+.win_lose_btn_center {
+
+  &::after {
+    content: '';
+    width: 10vw;
+  }
 }
 
 .first_info_content_div {
@@ -396,7 +412,7 @@ h1 { font-size: 3rem; }
   height: 6rem;
   justify-content: space-between;
 
-  & h1 { font-size: 3.5rem; }
+  & h1 { font-size: 9vw; }
 }
 
 .wonDrink_content_div {

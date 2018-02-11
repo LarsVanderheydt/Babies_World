@@ -5,13 +5,14 @@ import {number, func} from 'prop-types';
 import {inject, observer} from 'mobx-react';
 import Unicorn from './Unicorn';
 import Stork from './Stork';
+import Cloud from './Cloud';
 
 const Partner = ({partner, setPartner}) => {
 
-  const onPrevClick = () => {
-    partner --;
-    setPartner(partner);
-  };
+  // const onPrevClick = () => {
+  //   partner --;
+  //   setPartner(partner);
+  // };
 
   const onNextClick = () => {
     partner ++;
@@ -20,9 +21,9 @@ const Partner = ({partner, setPartner}) => {
 
   return (
     <div className='partners_page_div'>
-      <svg width='9px' height='14px' viewBox='0 0 9 14' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={onPrevClick}>
+      {/* <svg width='9px' height='14px' viewBox='0 0 9 14' version='1.1' xmlns='http://www.w3.org/2000/svg' onClick={onPrevClick}>
         <polygon id='Back-button' transform='translate(-2.000000, 3.000000)' fill='#9B1B51' points='2.63095238 3.84615385 9.13095238 -2.61538462 10.3690476 -1.38461538 5.10714286 3.84615385 10.3690476 9.07692308 9.13095238 10.3076923'></polygon>
-      </svg>
+      </svg> */}
 
       <svg width='271px' height='265px' viewBox='0 0 271 265' version='1.1' xmlns='http://www.w3.org/2000/svg'>
         <defs>
@@ -39,6 +40,8 @@ const Partner = ({partner, setPartner}) => {
                 return <Unicorn />;
               case 1:
                 return <Stork />;
+              case 2:
+                return <Cloud />;
               }
             })()
           }

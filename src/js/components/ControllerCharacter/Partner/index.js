@@ -4,9 +4,9 @@ import React from 'react';
 import {string} from 'prop-types';
 import Unicorn from './Unicorn';
 import Stork from './Stork';
+import Cloud from './Cloud';
 
 const Partner = ({partner}) => {
-
   return (
     <g>
       {
@@ -16,6 +16,8 @@ const Partner = ({partner}) => {
             return <Unicorn />;
           case `Stork`:
             return <Stork />;
+          case `Cloud`:
+            return <Cloud />;
           }
         })()
       }

@@ -11,7 +11,7 @@ import Partner from './Partner';
 const ControllerCharacter = ({character}) => {
 
   return (
-    <svg width='180px' height='130px' viewBox='0 0 200 360' version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
+    <svg width='180px' height='130px' viewBox={character.partner === `Stork` ? `0 0 350 360` : character.partner === `Cloud` ? `0 -30 200 330` : `0 0 100 360`} version='1.1' xmlns='http://www.w3.org/2000/svg' className='svg_character_controller'>
       <defs>
           <polygon id='legs-evil-1' points='0.202469892 0.0946553588 31.880986 0.0946553588 31.880986 23.6522455 0.202469892 23.6522455'></polygon>
           <polygon id='legs-evil-2' points='0.0499817204 0.0946553588 31.7284978 0.0946553588 31.7284978 23.6522455 0.0499817204 23.6522455'></polygon>
@@ -29,9 +29,19 @@ const ControllerCharacter = ({character}) => {
           <path d='M0.9552,1.61 C0.9552,2.4975 3.204,3.22 5.9784,3.22 C8.748,3.22 10.9968,2.4975 10.9968,1.61 C10.9968,0.72 8.748,0 5.9784,0 C3.204,0 0.9552,0.72 0.9552,1.61 Z' id='eyes-wings-4'></path>
       </defs>
 
-      <Partner partner={character.partner} />
+      {
+        character.partner === `Unicorn` || character.partner === `Cloud` ? (
+          <Partner partner={character.partner} />
+        ) : (
+          character.partner === `Stork` ? (
+            <g transform='translate(0, 60)'>
+              <path d='M273.358333,11 C273.358333,11 277.452381,102.750277 296,112.669811 L266.595238,128 L258,71.1881243 C258,71.1881243 268.811905,16.6415094 273.358333,11' id='Fill-14' fill='#B4BCAF'></path>
+            </g>
+          ) : ``
+        )
+      }
 
-      <g transform='scale(0.5 0.5) translate(50, 0)'>
+      <g transform={character.partner === `Unicorn` ? `scale(0.5 0.5) translate(50, 0)` : character.partner === `Stork` ? `scale(0.5 0.5) translate(600, 40) rotate(30)` : `scale(0.5 0.5) translate(50, -80)`}>
         {character.accessoire === `Cape` ? <Accessoires character={character} /> : ``}
         {character.accessoire === `Wings` ? <Accessoires character={character} /> : ``}
 
@@ -58,6 +68,12 @@ const ControllerCharacter = ({character}) => {
           ? `` : <Accessoires character={character} />
         }
       </g>
+
+      {
+        character.partner === `Stork` ? (
+          <Partner partner={character.partner} />
+        ) : ``
+      }
 
     </svg>
   );

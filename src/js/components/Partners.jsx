@@ -5,10 +5,11 @@ import {inject, observer} from 'mobx-react';
 import Controller from './Controller';
 import SvgPartner from './Partner';
 
-const Partners = ({choosingPartner, setPartnerPage, backToInfo, setPlay, character, partner, place, name}) => {
+const Partners = ({choosingPartner, setPartnerPage, backToInfo, setPlay, character, partner, place, name, setCharacter}) => {
 
   const handleNextClick = () => {
     setPartnerPage(false);
+    setCharacter(character);
     socket.emit(`setCharacter`, {character, place, name});
   };
 
@@ -37,13 +38,16 @@ const Partners = ({choosingPartner, setPartnerPage, backToInfo, setPlay, charact
                 switch (partner) {
                 case 0:
                   pName = `Unicorn`;
+                  character.partner = `Unicorn`;
                   break;
                 case 1:
                   pName = `Ooievaar`;
+                  character.partner = `Stork`;
                   break;
 
                 case 2:
-                  pName = `None`;
+                  pName = `Cloud`;
+                  character.partner = `Cloud`;
                   break;
                 }
 
@@ -67,6 +71,7 @@ Partners.propTypes = {
   backToInfo: func.isRequired,
   setPlay: func.isRequired,
   character: object.isRequired,
+  setCharacter: func.isRequired,
   partner: number.isRequired,
   place: string.isRequired,
   name: string.isRequired
@@ -84,6 +89,7 @@ export default inject(
       infoPage: store.infoPage,
       setPlay: store.setPlay,
       character: store.character,
+      setCharacter: store.setCharacter,
       partner: store.partner,
       place: store.place,
       name: store.name

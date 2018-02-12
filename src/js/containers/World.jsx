@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ControllerCharacter from '../components/ControllerCharacter';
 import {string} from 'prop-types';
 import shortid from 'shortid';
+import {Link} from 'react-router-dom';
 
 class World extends Component {
   state = {
@@ -12,6 +13,23 @@ class World extends Component {
 
   componentDidMount() {
     document.body.style.backgroundColor = `#FFDFEC`;
+
+    document.addEventListener(`keydown`, e => {
+      if (e.keyCode === 13) {
+        toggleFullScreen();
+      }
+    }, false);
+
+    const toggleFullScreen = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    };
+
     socket.on(`update`, users => {
 
       const currentSocketIds = [];
@@ -101,6 +119,7 @@ class World extends Component {
 
   render() {
     const {players, coins, topFive} = this.state;
+    const {world} = this.props;
 
     return (
       <div className='game_field'>
@@ -116,7 +135,8 @@ class World extends Component {
                 height: `3rem`,
                 backgroundColor: `#F7E31B`,
                 borderRadius: `120rem`,
-                border: `.3rem solid #CABD15`
+                border: `.3rem solid #CABD15`,
+                zIndex: `10`
               }}>
               </div>
             );
@@ -155,6 +175,18 @@ class World extends Component {
             }
           </ol>
         </div>
+
+        {
+          world === `home` ? (
+            <div className='home_world_info'>
+              <h1>Welkom op de baby wereld!</h1>
+              <p>Surf op uw smartphone naar <Link to='https://babiesworld.herokuapp.com/index.html?place=mars'>https://babiesworld.herokuapp.com/index.html?place=mars</Link></p>
+              <p>Of scan deze QR Code</p>
+              <img src='./assets/img/qr.jpg' alt='qr code website' width='200' height='200' />
+              <img src='https://babiesworld.herokuapp.com/assets/img/qr.jpg' alt='qr code website' width='200' height='200' />
+            </div>
+          ) : ``
+        }
 
       </div>
     );

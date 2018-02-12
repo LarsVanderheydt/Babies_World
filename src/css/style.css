@@ -444,8 +444,18 @@ h1 { font-size: 3rem; }
   display: flex;
   align-items: center;
   margin: 0 auto;
-  margin-top: 16vw;
+  padding-top: 25vh;
   z-index: 9999999;
+
+  & .home_world_info_btn {
+    font-size: 3rem;
+    color: #901947;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: .2rem solid;
+    margin-top: 3rem;
+    cursor: pointer;
+  }
 }
 
 @media (width >= 462px) {

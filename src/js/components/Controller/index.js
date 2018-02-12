@@ -23,7 +23,7 @@ class Controller extends Component {
     if (navigator.share !== undefined) {
       navigator.share({
         title: `Speel dit spel en win ...`,
-        url: `https://babiesworld.herokuapp.com/index.html?place=home`
+        url: `https://babiesworld.herokuapp.com/index.html?world=home`
       }).then(() => {
         const random = Math.floor(Math.random() * 100);
         if (random >= 0 && random <= 15) {

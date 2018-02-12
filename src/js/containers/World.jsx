@@ -3,6 +3,7 @@ import ControllerCharacter from '../components/ControllerCharacter';
 import {string} from 'prop-types';
 import shortid from 'shortid';
 import {Link} from 'react-router-dom';
+let $info, $coins;
 
 class World extends Component {
   state = {
@@ -10,6 +11,7 @@ class World extends Component {
     coins: [],
     topFive: []
   }
+
 
   componentDidMount() {
     document.body.style.backgroundColor = `#FFDFEC`;
@@ -117,6 +119,11 @@ class World extends Component {
     coins.push(coin);
   }
 
+  onGotItClick() {
+    $info.classList.add(`hide`);
+    $coins.classList.remove(`hide`);
+  }
+
   render() {
     const {players, coins, topFive} = this.state;
     const {world} = this.props;
@@ -124,24 +131,26 @@ class World extends Component {
     return (
       <div className='game_field'>
 
-        {
-          coins.map(coin => {
-            return (
-              <div id='coin' key={coin.id} style={{
-                position: `absolute`,
-                left: `${coin.x}%`,
-                bottom: `${coin.y}%`,
-                width: `3rem`,
-                height: `3rem`,
-                backgroundColor: `#F7E31B`,
-                borderRadius: `120rem`,
-                border: `.3rem solid #CABD15`,
-                zIndex: `10`
-              }}>
-              </div>
-            );
-          })
-        }
+        <div ref={$el => $coins = $el} className={world === `home` ? `hide` : ``}>
+          {
+            coins.map(coin => {
+              return (
+                <div id='coin' key={coin.id} style={{
+                  position: `absolute`,
+                  left: `${coin.x}%`,
+                  bottom: `${coin.y}%`,
+                  width: `3rem`,
+                  height: `3rem`,
+                  backgroundColor: `#F7E31B`,
+                  borderRadius: `120rem`,
+                  border: `.3rem solid #CABD15`,
+                  zIndex: `10`
+                }}>
+                </div>
+              );
+            })
+          }
+        </div>
 
         {
           players.map(player => {
@@ -178,12 +187,14 @@ class World extends Component {
 
         {
           world === `home` ? (
-            <div className='home_world_info'>
+            <div className='home_world_info' ref={$el => $info = $el}>
               <h1>Welkom op de baby wereld!</h1>
-              <p>Surf op uw smartphone naar <Link to='https://babiesworld.herokuapp.com/index.html?place=mars'>https://babiesworld.herokuapp.com/index.html?place=mars</Link></p>
+              <p>Surf op uw smartphone naar <Link to='https://babiesworld.herokuapp.com/'>https://babiesworld.herokuapp.com</Link></p>
               <p>Of scan deze QR Code</p>
-              <img src='./assets/img/qr.jpg' alt='qr code website' width='200' height='200' />
-              <img src='https://babiesworld.herokuapp.com/assets/img/qr.jpg' alt='qr code website' width='200' height='200' />
+              <img src='./assets/img/qr.jpg' alt='qr code website' width='100' height='100' />
+              {/* <img src='https://babiesworld.herokuapp.com/assets/img/qr.jpg' alt='qr code website' width='100' height='100' /> */}
+
+              <button className='home_world_info_btn' onClick={() => this.onGotItClick()}>Got it!</button>
             </div>
           ) : ``
         }

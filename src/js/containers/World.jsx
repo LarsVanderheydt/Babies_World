@@ -130,6 +130,7 @@ class World extends Component {
 
     return (
       <div className='game_field'>
+        <h1>https://babiesworld.herokuapp.com</h1>
 
         <div ref={$el => $coins = $el} className={world === `home` ? `hide` : ``}>
           {
@@ -159,7 +160,8 @@ class World extends Component {
                 position: `absolute`,
                 left: `${player.x}%`,
                 bottom: `${player.y}%`,
-                height: `15rem`
+                height: `15rem`,
+                zIndex: `10`
               }}>
                 <ControllerCharacter character={player.character} id={player.id} />
               </div>

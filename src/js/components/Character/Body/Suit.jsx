@@ -10,11 +10,11 @@ const Suit = () => {
             <polygon id='Fill-7' fill='#FFFFFF' points='85.8611054 2.47287692 64.002772 41.9621077 42.1439763 2.47287692'></polygon>
         </g>
         <g id='Group-12' transform='translate(42.000000, 3.000000)'>
-            <mask id='mask-2' fill='white'>
+            <mask id='mask-2123456654' fill='white'>
                 <use xlinkHref='#body-suit-1'></use>
             </mask>
             <g id='Clip-11'></g>
-            <polygon id='Fill-10' fill='#FF0000' mask='url(#mask-2)' points='28.8588316 3.72093023 16.0693579 3.72093023 18.4377789 13.4883721 16.0693579 46.5116279 28.8588316 46.5116279 26.4904105 13.4883721'></polygon>
+            <polygon id='Fill-10' fill='#FF0000' mask='url(#mask-2123456654)' points='28.8588316 3.72093023 16.0693579 3.72093023 18.4377789 13.4883721 16.0693579 46.5116279 28.8588316 46.5116279 26.4904105 13.4883721'></polygon>
         </g>
     </g>
   );

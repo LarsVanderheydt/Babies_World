@@ -49,14 +49,14 @@ const Win = ({name, play, setPlay, backToInfo, setPartnerPage, win, setInfo, inf
                   <p>{name} is <span className='bold'>zonder problemen</span> op de digitale wereld gebracht,</p>
                   <p>maar niet iedereen heeft zoveel succes.</p>
                   <p>Vanaf 30 jaar vermindert de kans op zwangerschap,</p>
-                  <p><span className='bold'>dus wacht niet te lang.</span> <span className='win_lose_info_link'>Leer meer hierover.</span></p>
+                  <p><span className='bold'>dus wacht niet te lang.</span> <span className='win_lose_info_link' onClick={onInfoClick}>Leer meer hierover.</span></p>
                 </div>
               ) : (
                 <div>
                   <p>{name} is niet op de wereld gezet… Je deed er iets te lang over.</p>
                   <p>Gelukkig is dit een spel en krijg je hier een <span className='bold'>tweede kans.</span></p>
                   <p>In het echte leven is dit niet zo!</p>
-                  <p><span className='bold'>Vanaf 30 jaar verkleint de kans op zwangerschap.</span><span className='win_lose_info_link'>Leer meer.</span></p>
+                  <p><span className='bold'>Vanaf 30 jaar verkleint de kans op zwangerschap.</span><span className='win_lose_info_link' onClick={onInfoClick}>Leer meer.</span></p>
                 </div>
               )
             }

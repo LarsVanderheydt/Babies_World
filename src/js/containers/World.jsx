@@ -130,7 +130,7 @@ class World extends Component {
 
     return (
       <div className='game_field'>
-        <h1>https://babiesworld.herokuapp.com</h1>
+        <h1 className='game_field_link'>https://babiesworld.herokuapp.com</h1>
 
         <div ref={$el => $coins = $el} className={world === `home` ? `hide` : ``}>
           {

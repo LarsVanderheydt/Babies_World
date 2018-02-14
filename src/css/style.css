@@ -36,6 +36,12 @@ h1 { font-size: 3rem; }
   height: 100vh;
 }
 
+.game_field_link {
+  text-align: center;
+  font-size: 6rem;
+  margin-top: 17rem;
+}
+
 .highscores {
   z-index: 9;
   display: flex;

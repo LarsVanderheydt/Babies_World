@@ -1,5 +1,10 @@
 # Babies World
 
-### a bachelor project to raise fertility awareness in Belgium
+### A project to raise fertility awareness in Belgium
 
-made with [Yves].
+### Technologies used in this project are
+- [socket.io](http://socket.io/)
+- [React](https://reactjs.org/)
+- And lots of SVG's
+
+Made with [Yves](https://github.com/YvesMeeuws).

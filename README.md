@@ -1,5 +1,5 @@
 # [Babies World](https://babiesworld.herokuapp.com/)
-### A project to raise fertility awareness in Belgium
+> A project to raise fertility awareness in Belgium
 
 ```additional```
 </br>
@@ -13,7 +13,7 @@
 - [React](https://reactjs.org/)
 - And lots of SVG's
 
-```this project is hosted on heroku so it may take a while to load```
+> this project is hosted on heroku so it may take a while to load
 
 ## Made with 
 ### Yves 
